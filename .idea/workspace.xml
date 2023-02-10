@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f990f59a-c295-4ca4-bfb7-31cfbc5aa4d9" name="Changes" comment="target excluded">
+    <list default="true" id="f990f59a-c295-4ca4-bfb7-31cfbc5aa4d9" name="Changes" comment=".gitignore">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/MANIFEST.MF" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/registration.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/home_page.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/fxml/registration.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/registration.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/img/home_page.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/home_page.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/AbstractDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/AbstractDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DaoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/DaoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/UserDaoSQLImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ba/unsa/etf/rpr/dao/UserDaoSQLImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/fxml/home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/fxml/registration.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/img/home_page.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +64,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amila\IdeaProjects\CriminalRecords" />
       <recent name="C:\Users\amila\IdeaProjects\CriminalRecords\src\main" />
+      <recent name="C:\Users\amila\IdeaProjects\CriminalRecords\src\resources" />
+      <recent name="C:\Users\amila\IdeaProjects\CriminalRecords" />
       <recent name="C:\Users\amila\IdeaProjects\CriminalRecords\src" />
       <recent name="C:\Users\amila\IdeaProjects\CriminalRecords\resources\img" />
-      <recent name="C:\Users\amila\IdeaProjects\CriminalRecords\src\main\java\ba\unsa\etf\rpr" />
     </key>
   </component>
   <component name="RunManager">
@@ -236,7 +244,28 @@
       <option name="project" value="LOCAL" />
       <updated>1676061390548</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary=".gitignore">
+      <created>1676062071000</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1676062071000</updated>
+    </task>
+    <task id="LOCAL-00024" summary=".gitignore">
+      <created>1676062114472</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1676062114472</updated>
+    </task>
+    <task id="LOCAL-00025" summary=".gitignore">
+      <created>1676062211477</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1676062211477</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -256,6 +285,7 @@
     <MESSAGE value="Error - Target folder" />
     <MESSAGE value="DaoFactory class added" />
     <MESSAGE value="target excluded" />
-    <option name="LAST_COMMIT_MESSAGE" value="target excluded" />
+    <MESSAGE value=".gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value=".gitignore" />
   </component>
 </project>

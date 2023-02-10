@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-/*
+
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
@@ -60,4 +60,4 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
 
    public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
 
-}*/
+}

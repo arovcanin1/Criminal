@@ -1,5 +1,5 @@
 package ba.unsa.etf.rpr.dao;
-/*
+
 public class DaoFactory {
 
     private static final UserDao usersDao = new UserDaoSQLImpl();
@@ -10,4 +10,3 @@ public class DaoFactory {
         return usersDao;
     }
 }
-*/

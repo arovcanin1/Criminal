@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.dao;
 
-/*
+
 import ba.unsa.etf.rpr.domain.User;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import ba.unsa.etf.rpr.domain.Idable;
@@ -57,4 +57,4 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
     }
 
 
-}*/
+}
