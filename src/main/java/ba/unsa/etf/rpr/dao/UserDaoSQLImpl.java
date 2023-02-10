@@ -8,13 +8,14 @@ import ba.unsa.etf.rpr.domain.Idable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
     public UserDaoSQLImpl() {
         super("User");
     }
-
 
     public User row2object(ResultSet rs) throws CriminalRecordsException, SQLException {
         User user = new User();
@@ -32,6 +33,17 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
         }
 
     }
+
+    public Map<String, Object> object2row(User object) {
+        Map<String, Object> item = new TreeMap<String, Object>();
+        item.put("id", object.getId());
+        item.put("firstName", object.getFirstName());
+        item.put("lastName", object.getLastName());
+        item.put("email", object.getEmail());
+        item.put("username", object.getUsername());
+        item.put("password", object.getPassword());
+        return item;
+    }
     @Override
     public User getById(int id) throws CriminalRecordsException {
         return null;
@@ -39,7 +51,7 @@ public class UserDaoSQLImpl extends AbstractDao<User> implements UserDao {
 
     @Override
     public User getByUsername(String username) throws CriminalRecordsException {
-        String query = "SELECT * FROM users WHERE username=?";
+        String query = "SELECT * FROM User WHERE username=?";
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setString(1, username);

@@ -5,6 +5,7 @@ import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.sql.*;
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -59,5 +60,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
    }
 
    public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
+
+   public abstract Map<String, Object> object2row(T object);
 
 }

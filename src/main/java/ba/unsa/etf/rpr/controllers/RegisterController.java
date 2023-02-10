@@ -1,4 +1,18 @@
 package ba.unsa.etf.rpr.controllers;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+
 public class RegisterController {
+
+    public TextField firstNameFld;
+    public TextField lastNameFld;
+    public TextField emailFld;
+    public TextField usernameFld;
+    public PasswordField passwordFld;
+    public PasswordField passwordConfirmFld;
+    public Button registerBtn;
+
+
 }
