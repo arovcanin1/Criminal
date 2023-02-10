@@ -4,8 +4,8 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import javax.xml.transform.Result;
+import java.sql.*;
 import java.util.Properties;
 
 
@@ -38,8 +38,24 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
    }
 
    public T getById(int id) throws CriminalRecordsException {
-      return null;
+      String query = "SELECT * FROM" + this.table + "WHERE id=?";
+
+      try {
+         PreparedStatement statement = this.connection.prepareStatement(query);
+         statement.setInt(1, id);
+         ResultSet rs = statement.executeQuery();
+         if (rs.next()) {
+            T result = row2object(rs);
+            return result;
+         } else {
+            throw new CriminalRecordsException("Object not found");
+         }
+      } catch(SQLException e) {
+         throw new CriminalRecordsException(e.getMessage(), e);
+      }
    }
+
+   public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
 
 
 
