@@ -3,6 +3,9 @@ package ba.unsa.etf.rpr.domain;
 public class User implements Idable {
 
     private int id;
+    private String firstName;
+    private String lastName;
+    private String email;
     private String username;
     private String password;
 
