@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.Properties;
 
 
@@ -52,6 +53,8 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
     }
 
     public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
+
+    public abstract Map<String, Object> object2row (T Object);
 
 
 }

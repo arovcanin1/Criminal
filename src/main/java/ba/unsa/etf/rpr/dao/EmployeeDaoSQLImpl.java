@@ -6,6 +6,8 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements EmployeeDao {
 
@@ -37,6 +39,17 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         } catch(SQLException e) {
             throw new CriminalRecordsException(e.getMessage());
         }
+    }
+
+    public Map<String, Object> object2row (Employee object) {
+        Map<String, Object> item = new TreeMap<String, Object>();
+        item.put("id", object.getId());
+        item.put("firstName", object.getFirstName());
+        item.put("lastName", object.getLastName());
+        item.put("email", object.getEmail());
+        item.put("username", object.getUsername());
+        item.put("password", object.getPassword());
+        return item;
     }
 
 
