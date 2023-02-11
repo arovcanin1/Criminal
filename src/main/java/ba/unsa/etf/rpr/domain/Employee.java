@@ -1,6 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 
-public class User implements Idable {
+public class Employee implements Idable {
 
     private int id;
     private String firstName;
@@ -9,7 +9,7 @@ public class User implements Idable {
     private String username;
     private String password;
 
-    public User(int id, String firstName, String lastName, String email, String username, String password) {
+    public Employee(int id, String firstName, String lastName, String email, String username, String password) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,7 +18,7 @@ public class User implements Idable {
         this.password = password;
     }
 
-    public User() {}
+    public Employee() {}
 
     @Override
     public int getId() {
