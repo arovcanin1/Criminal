@@ -2,11 +2,11 @@ package ba.unsa.etf.rpr.dao;
 
 public class DaoFactory {
 
-    private static final EmployeeDao usersDao = new EmployeeDaoSQLImpl();
+    private static final EmployeeDao employeesDao = new EmployeeDaoSQLImpl();
 
     private DaoFactory() {}
 
-    public static EmployeeDao usersDao() {
-        return usersDao;
+    public static EmployeeDao employeesDao() {
+        return employeesDao;
     }
 }
