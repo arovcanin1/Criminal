@@ -4,6 +4,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
@@ -22,7 +23,21 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
 
     @Override
     public Employee getByUsername(String username) throws CriminalRecordsException {
-        return null;
+        String query = "SELECT * FROM Employee WHERE username=?";
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            statement.setString(1, username);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Employee result = row2object(rs);
+                rs.close();
+                return result;
+            } else {
+                throw new CriminalRecordsException("Employee does not exist!");
+            }
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
     }
 
     public Employee row2object(ResultSet rs) throws CriminalRecordsException, SQLException {
