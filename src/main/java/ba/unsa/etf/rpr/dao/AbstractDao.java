@@ -2,9 +2,11 @@ package ba.unsa.etf.rpr.dao;
 
 
 import ba.unsa.etf.rpr.domain.Idable;
+import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 
@@ -44,6 +46,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             }
         }
     }
+
+    public static Connection getConnection() {
+        return AbstractDao.connection;
+    }
+
+    public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
 
 
 }
