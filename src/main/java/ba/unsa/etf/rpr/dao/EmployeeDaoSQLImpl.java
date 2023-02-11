@@ -18,7 +18,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
 
     @Override
     public Employee getById(int id) throws CriminalRecordsException {
-        return null;
+       return null;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
-    public Map<String, Object> object2row (Employee object) {
+    public Map<String, Object> object2row(Employee object) {
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("id", object.getId());
         item.put("firstName", object.getFirstName());
