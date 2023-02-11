@@ -4,10 +4,7 @@ package ba.unsa.etf.rpr.dao;
 import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Properties;
@@ -74,6 +71,34 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
 
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
+    }
+
+    public T add(T item) throws CriminalRecordsException {
+        Map<String, Object> row = object2row(item);
+        Map.Entry<String, String> columns = prepareInsertParts(row);
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("INSERT INTO ").append(tableName);
+        builder.append(" (").append(columns.getKey()).append(") ");
+        builder.append("VALUES (").append(columns.getValue()).append(") ");
+        try {
+            int counter = 1;
+            PreparedStatement statement = getConnection().prepareStatement(builder.toString(), Statement.RETURN_GENERATED_KEYS);
+            for (Map.Entry<String, Object> entry : row.entrySet()) {
+                if (entry.getKey().equals("id")) continue;
+                statement.setObject(counter, entry.getValue());
+                counter++;
+            }
+
+            statement.executeUpdate();
+
+            ResultSet rs = statement.getGeneratedKeys();
+            rs.next();
+            item.setId(rs.getInt(1));
+            return item;
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
     }
 
 

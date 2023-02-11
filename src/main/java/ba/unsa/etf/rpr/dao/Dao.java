@@ -6,5 +6,7 @@ public interface Dao<T> {
 
     T getById(int id) throws CriminalRecordsException;
 
+    T add(T item) throws CriminalRecordsException;
+
 
 }
