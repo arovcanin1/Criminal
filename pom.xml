@@ -98,7 +98,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>0.0.8</version>
           <configuration>
-            <mainClass>ba.unsa.etf.rpr.App</mainClass>
+            <mainClass>ba.unsa.etf.rpr.AppFX</mainClass>
           </configuration>
         </plugin>
       </plugins>
