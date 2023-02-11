@@ -6,7 +6,9 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements EmployeeDao {
 
-
+    public EmployeeDaoSQLImpl() {
+        super("Employee");
+    }
 
     @Override
     public Employee getById(int id) throws CriminalRecordsException {
