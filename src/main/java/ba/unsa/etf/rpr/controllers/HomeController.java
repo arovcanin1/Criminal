@@ -22,7 +22,7 @@ public class HomeController {
             s.close();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/registration.fxml"));
-            loader.setController(new RegisterController());
+            loader.setController(new RegistrationController());
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Registration");
