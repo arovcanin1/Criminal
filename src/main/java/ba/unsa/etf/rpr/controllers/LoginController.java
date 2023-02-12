@@ -20,9 +20,9 @@ import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class LoginController {
 
-    public Button loginBtn;
-    public TextField usernameFld;
-    public PasswordField passwordFld;
+    public Button loginBtnClick;
+    public TextField inputUsernameFld;
+    public PasswordField inputPasswordFld;
 
     Employee employee = new Employee();
 
@@ -31,11 +31,11 @@ public class LoginController {
 
         try {
             Employee emp = DaoFactory.employeesDao().getByUsername(employee.getUsername());
-            employee.setUsername(usernameFld.getText());
-            employee.setPassword(passwordFld.getText());
+            employee.setUsername(inputUsernameFld.getText());
+            employee.setPassword(inputPasswordFld.getText());
 
             (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
-            Stage s = (Stage) loginBtn.getScene().getWindow();
+            Stage s = (Stage) loginBtnClick.getScene().getWindow();
             s.close();
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/example.fxml"));

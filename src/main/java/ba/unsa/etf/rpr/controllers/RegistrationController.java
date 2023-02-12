@@ -38,7 +38,7 @@ public class RegistrationController {
             Stage stage = (Stage) registerBtn.getScene().getWindow();
             stage.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-            loader.setController(new RegistrationController());
+            loader.setController(new LoginController());
             Parent root = loader.load();
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);

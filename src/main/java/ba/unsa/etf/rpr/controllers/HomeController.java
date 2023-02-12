@@ -16,6 +16,8 @@ public class HomeController {
     public Button registerBtn;
     public Button loginBtn;
 
+    public Button aboutBtn;
+
     public void showRegistration(ActionEvent event) {
 
         try {
@@ -52,4 +54,6 @@ public class HomeController {
             throw new RuntimeException(e);
         }
     }
+
+
 }

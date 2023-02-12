@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="407.0" fitWidth="680.0" layoutY="29.0">
+         <Image url="@../img/home_page.jpg" />
+      </ImageView>
+      <TextArea layoutX="153.0" layoutY="70.0" prefHeight="295.0" prefWidth="373.0" text="This is a smaller criminal records application &#10;   that has the ability to add, delete and edit &#10;               criminals and their records.&#10;&#10;&#10;&#10;&#10;&#10;&#10;                                Contact&#10;                        Amila Rovčanin &#10;">
+         <font>
+            <Font name="Georgia" size="18.0" />
+         </font>
+      </TextArea>
+      <Hyperlink layoutX="209.0" layoutY="306.0" text="https://github.com/arovcanin1/CriminalRecords" />
+   </children>
 
 </AnchorPane>
