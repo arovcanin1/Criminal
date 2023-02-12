@@ -15,11 +15,11 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="261.0" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="loginBtn" onAction="#showEmployeeWindow" mnemonicParsing="false" prefHeight="26.0" prefWidth="261.0" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <TextField maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" GridPane.columnIndex="1" />
       <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Label text="Username" GridPane.halignment="CENTER" />
-      <Label text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+      <Label fx:id ="usernameFld" text="Username" GridPane.halignment="CENTER" />
+      <Label fx:id ="passwordFld" text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="1">
          <font>
             <Font name="Arial" size="12.0" />
          </font>

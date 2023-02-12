@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.EmployeeManager;
+import ba.unsa.etf.rpr.dao.Dao;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -12,39 +14,41 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.nio.FloatBuffer;
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
-public class RegistrationController {
+public class LoginController {
 
-    public TextField firstNameFld;
-    public TextField lastNameFld;
-    public TextField emailFld;
+    public Button loginBtn;
     public TextField usernameFld;
     public PasswordField passwordFld;
-    public PasswordField passwordConfirmFld;
-    public Button registerBtn;
 
-    private EmployeeManager employeeManager = new EmployeeManager();
+    Employee employee = new Employee();
 
-    public void registration(ActionEvent event) {
+
+    public void showEmployeeWindow(ActionEvent event) {
+
         try {
-            Employee employee = new Employee();
-            employee.setFirstName(firstNameFld.getText());
-            employee.setLastName(lastNameFld.getText());
-            employee.setEmail(emailFld.getText());
+            Employee emp = DaoFactory.employeesDao().getByUsername(employee.getUsername());
             employee.setUsername(usernameFld.getText());
             employee.setPassword(passwordFld.getText());
-            employeeManager.add(employee, passwordConfirmFld.getText());
-            Stage stage = (Stage) registerBtn.getScene().getWindow();
-            stage.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-            loader.setController(new RegistrationController());
+
+            (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
+            Stage s = (Stage) loginBtn.getScene().getWindow();
+            s.close();
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/example.fxml"));
+            loader.setController(new ExampleController());
             Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("CR Employee");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage());
         }
+
     }
 }

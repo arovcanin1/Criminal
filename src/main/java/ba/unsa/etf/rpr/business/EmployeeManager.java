@@ -54,4 +54,19 @@ public class EmployeeManager {
         }
     }
 
+    public Employee loginSearch(String username, String password) throws CriminalRecordsException {
+
+        Employee employee = DaoFactory.employeesDao().getByUsername(username);
+
+        if (username == null || password.equals("")) {
+            throw new CriminalRecordsException("Each field must be filled!");
+        }
+
+        if (!employee.getPassword().equals(password)) {
+            throw new CriminalRecordsException("Password is not correct!");
+        }
+
+        return employee;
+    }
+
 }
