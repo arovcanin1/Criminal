@@ -17,10 +17,6 @@
           <RowConstraints maxHeight="87.4" minHeight="10.0" prefHeight="46.400000000000006" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="loginBtnClick" mnemonicParsing="false" onAction="#showEmployeeWindow" prefHeight="26.0" prefWidth="266.0" text="Login" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Button>
             <TextField fx:id="inputUsernameFld" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="200.0" GridPane.columnIndex="1" />
             <PasswordField fx:id="inputPasswordFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="Username" GridPane.halignment="CENTER">
@@ -32,6 +28,10 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
+            <Button fx:id="loginBtnClick" mnemonicParsing="false" onAction="#showEmployeeWindow" prefHeight="26.0" prefWidth="275.0" text="Login" GridPane.columnSpan="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font></Button>
          </children>
       </GridPane>
    </children>

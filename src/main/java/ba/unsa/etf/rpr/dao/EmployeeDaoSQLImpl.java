@@ -18,7 +18,21 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
 
     @Override
     public Employee getById(int id) throws CriminalRecordsException {
-       return null;
+       String query = "SELECT * FROM Employee WHERE id = ?";
+       try {
+           PreparedStatement statement = getConnection().prepareStatement(query);
+           statement.setInt(1, id);
+           ResultSet rs = statement.executeQuery();
+           if (rs.next()) {
+               Employee result = row2object(rs);
+               rs.close();
+               return result;
+           } else {
+               throw new CriminalRecordsException("Employee does not exist!");
+           }
+       } catch (SQLException e) {
+           throw new CriminalRecordsException(e.getMessage(), e);
+       }
     }
 
     @Override
@@ -33,6 +47,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
                 rs.close();
                 return result;
             } else {
+
                 throw new CriminalRecordsException("Employee does not exist!");
             }
         } catch (SQLException e) {

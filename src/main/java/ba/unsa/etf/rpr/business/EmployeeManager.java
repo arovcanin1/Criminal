@@ -59,10 +59,13 @@ public class EmployeeManager {
         Employee employee = DaoFactory.employeesDao().getByUsername(username);
 
         if (username == null || password.equals("")) {
+            System.out.println("Error check!");
             throw new CriminalRecordsException("Each field must be filled!");
+
         }
 
         if (!employee.getPassword().equals(password)) {
+            System.out.println("Error check!");
             throw new CriminalRecordsException("Password is not correct!");
         }
 

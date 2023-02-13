@@ -14,7 +14,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.nio.FloatBuffer;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
@@ -30,16 +29,13 @@ public class LoginController {
     public void showEmployeeWindow(ActionEvent event) {
 
         try {
-            Employee emp = DaoFactory.employeesDao().getByUsername(employee.getUsername());
             employee.setUsername(inputUsernameFld.getText());
             employee.setPassword(inputPasswordFld.getText());
-
-            (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
-            Stage s = (Stage) loginBtnClick.getScene().getWindow();
-            s.close();
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/example.fxml"));
-            loader.setController(new ExampleController());
+            System.out.println("Testing if button is OK!");
+           // (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/employee.fxml"));
+            Employee employee1 = DaoFactory.employeesDao().getByUsername(employee.getUsername());
+            loader.setController(new EmployeeController(employee1));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Employee");
