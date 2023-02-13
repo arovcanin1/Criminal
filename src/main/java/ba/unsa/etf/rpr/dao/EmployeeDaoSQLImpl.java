@@ -38,6 +38,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
     @Override
     public Employee getByUsername(String username) throws CriminalRecordsException {
         String query = "SELECT * FROM Employee WHERE username=?";
+
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setString(1, username);
@@ -47,7 +48,6 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
                 rs.close();
                 return result;
             } else {
-
                 throw new CriminalRecordsException("Employee does not exist!");
             }
         } catch (SQLException e) {

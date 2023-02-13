@@ -32,10 +32,18 @@ public class LoginController {
             employee.setUsername(inputUsernameFld.getText());
             employee.setPassword(inputPasswordFld.getText());
             System.out.println("Testing if button is OK!");
-           // (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
+            /* Checking if username and password is ok
+            System.out.println("PASSWORD JE " + employee.getPassword());
+            System.out.println("USERNAME JE " + employee.getUsername());*/
+
+            (new EmployeeManager()).loginSearch(employee.getUsername(), employee.getPassword());
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/employee.fxml"));
-            Employee employee1 = DaoFactory.employeesDao().getByUsername(employee.getUsername());
-            loader.setController(new EmployeeController(employee1));
+            // Employee employee1 = DaoFactory.employeesDao().getByUsername(employee.getUsername());
+
+            Stage s = (Stage) loginBtnClick.getScene().getWindow();
+            s.close();
+
+            loader.setController(new EmployeeController(employee));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Employee");
