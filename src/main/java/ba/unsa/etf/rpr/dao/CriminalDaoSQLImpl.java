@@ -1,9 +1,11 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Criminal;
+import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.domain.Gender;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
@@ -13,8 +15,23 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> {
 
     public CriminalDaoSQLImpl() { super("Criminal"); }
 
+    @Override
     public Criminal getById(int id) throws CriminalRecordsException {
-        return null;
+        String query = "SELECT * FROM Employee WHERE id = ?";
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Criminal result = row2object(rs);
+                rs.close();
+                return result;
+            } else {
+                throw new CriminalRecordsException("Employee does not exist!");
+            }
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
     }
 
     public Criminal row2object(ResultSet rs) throws CriminalRecordsException {
