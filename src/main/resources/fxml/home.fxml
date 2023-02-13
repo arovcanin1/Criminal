@@ -20,7 +20,7 @@
        <Button fx:id="registerBtn" layoutX="553.0" layoutY="1.0" mnemonicParsing="false" onAction="#showRegistration" text="Register" />
 
        <ImageView fitHeight="407.0" fitWidth="680.0" layoutY="29.0">
-           <Image url="@../img/home_page.jpg" />
+           <Image url="@../img/cr.jpg" />
        </ImageView>
    </children>
 </AnchorPane>

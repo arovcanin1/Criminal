@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Criminal implements Idable {
@@ -7,10 +8,10 @@ public class Criminal implements Idable {
        private String firstName;
        private String lastName;
        private String jmbg;
-       private Date birthDate;
+       private LocalDate birthDate;
        private Gender gender;
 
-    public Criminal(int id, String firstName, String lastName, String jmbg, Date birthDate, Gender gender) {
+    public Criminal(int id, String firstName, String lastName, String jmbg, LocalDate birthDate, Gender gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -55,11 +56,11 @@ public class Criminal implements Idable {
         this.jmbg = jmbg;
     }
 
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 

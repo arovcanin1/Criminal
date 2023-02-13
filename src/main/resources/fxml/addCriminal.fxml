@@ -35,10 +35,10 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-      <DatePicker maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+      <TextField fx:id="firstNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+      <TextField fx:id="lastNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <TextField fx:id="jmbgFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <DatePicker fx:id="birthDatePicker" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
       <Label text="Birth date" GridPane.halignment="CENTER" GridPane.rowIndex="3">
          <font>
             <Font name="Arial" size="13.0" />
@@ -49,7 +49,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <CheckBox mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
+      <CheckBox fx:id="genderMaleCheck" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -57,12 +57,12 @@
             <Insets left="35.0" />
          </GridPane.margin>
       </CheckBox>
-      <CheckBox mnemonicParsing="false" text="Female" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+      <CheckBox fx:id="genderFemaleCheck" mnemonicParsing="false" text="Female" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </CheckBox>
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+      <Button fx:id="confirmBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
