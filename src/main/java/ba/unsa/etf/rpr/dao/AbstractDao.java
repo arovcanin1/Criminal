@@ -73,6 +73,22 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
 
+    private String prepareUpdateParts(Map<String, Object> row) {
+        StringBuilder columns = new StringBuilder();
+
+        int counter = 0;
+        for(Map.Entry<String, Object> entry: row.entrySet()) {
+            counter++;
+            if (entry.getKey().equals("id")) continue;
+            columns.append(entry.getKey()).append("=?");
+            if (row.size() != counter) {
+                columns.append(",");
+            }
+        }
+
+        return columns.toString();
+    }
+
     public T add(T item) throws CriminalRecordsException {
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
