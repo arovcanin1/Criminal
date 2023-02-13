@@ -33,6 +33,14 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> {
     }
 
     public Map<String, Object> object2row (Criminal object) {
-        return null;
+        Map<String, Object> item = new TreeMap<>();
+
+        item.put("id", object.getId());
+        item.put("firstName", object.getFirstName());
+        item.put("lastName", object.getLastName());
+        item.put("jmbg", object.getJmbg());
+        item.put("date", object.getBirthDate());
+        item.put("gender", object.getGender());
+        return item;
     }
 }
