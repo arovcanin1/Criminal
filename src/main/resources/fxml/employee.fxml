@@ -9,7 +9,7 @@
       <Button layoutX="117.0" layoutY="2.0" mnemonicParsing="false" text="Home" />
       <Button layoutX="175.0" layoutY="2.0" mnemonicParsing="false" text="About" />
       <Button layoutX="611.0" layoutY="2.0" mnemonicParsing="false" text="Logout" />
-      <Button layoutX="235.0" layoutY="2.0" mnemonicParsing="false" text="Criminals" />
+      <Button fx:id="criminalsBtn" layoutX="235.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAllCriminals" text="Criminals" />
 
       <ImageView fitHeight="407.0" fitWidth="680.0" layoutY="29.0">
          <Image url="@../img/home_page.jpg" />

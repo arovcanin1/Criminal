@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+
+    <ImageView fitHeight="316.0" fitWidth="314.0" layoutX="14.0" layoutY="42.0">
+        <Image url="@../img/criminals.jpg" />
+    </ImageView>
+   <ListView layoutX="338.0" layoutY="42.0" prefHeight="316.0" prefWidth="248.0" />
+   <Button fx:id="addCriminalBtn" layoutX="469.0" layoutY="362.0" mnemonicParsing="false" onAction="#showAddCriminal" text="Add new criminal">
+      <font>
+         <Font name="Arial" size="13.0" />
+      </font></Button>
+
+</AnchorPane>
