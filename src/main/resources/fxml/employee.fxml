@@ -6,15 +6,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="75.0" layoutY="1.0" mnemonicParsing="false" text="Home" />
-      <Button layoutX="137.0" layoutY="1.0" mnemonicParsing="false" text="About" />
-      <Button layoutX="531.0" layoutY="1.0" mnemonicParsing="false" text="Logout" />
-      <Button layoutX="195.0" layoutY="1.0" mnemonicParsing="false" text="Criminals" />
+      <Button layoutX="117.0" layoutY="2.0" mnemonicParsing="false" text="Home" />
+      <Button layoutX="175.0" layoutY="2.0" mnemonicParsing="false" text="About" />
+      <Button layoutX="611.0" layoutY="2.0" mnemonicParsing="false" text="Logout" />
+      <Button layoutX="235.0" layoutY="2.0" mnemonicParsing="false" text="Criminals" />
 
-      <ImageView fitHeight="308.0" fitWidth="343.0" layoutY="47.0">
-         <Image url="@../img/criminals.jpg" />
+      <ImageView fitHeight="407.0" fitWidth="680.0" layoutY="29.0">
+         <Image url="@../img/home_page.jpg" />
       </ImageView>
-      <Button layoutX="480.0" layoutY="360.0" mnemonicParsing="false" text="Add new criminal" />
-      <ListView layoutX="343.0" layoutY="47.0" prefHeight="308.0" prefWidth="259.0" />
    </children>
 </AnchorPane>
