@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CriminalManager;
 import ba.unsa.etf.rpr.domain.Criminal;
+import ba.unsa.etf.rpr.domain.Gender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +30,7 @@ public class CriminalController {
             criminal.setLastName(lastNameFld.getText());
             criminal.setJmbg(jmbgFld.getText());
             criminal.setBirthDate(birthDatePicker.getValue());
-            // if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
+            //if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
             //else criminal.setGender(Gender.FEMALE);
 
             criminalManager.add(criminal);

@@ -72,6 +72,11 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
+    /**
+     *
+     * @param object
+     * @return
+     */
     @Override
     public Map<String, Object> object2row(Employee object) {
         Map<String, Object> item = new TreeMap<String, Object>();

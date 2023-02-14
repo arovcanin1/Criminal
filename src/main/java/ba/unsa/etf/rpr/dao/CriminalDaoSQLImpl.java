@@ -45,7 +45,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
             criminal.setLastName(rs.getString("lastName"));
             criminal.setJmbg(rs.getString("jmbg"));
             criminal.setBirthDate(rs.getDate("date").toLocalDate());
-            //criminal.setGender(Gender.valueOf(rs.getString("gender")));
+            //criminal.setGender(rs.getString("gender"));
             return criminal;
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage());

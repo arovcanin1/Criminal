@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.AccessibleRole;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 
@@ -30,6 +31,7 @@ public class EmployeeController {
 
     private Employee employee;
 
+    public Button logoutBtn;
 
     public ListView listView;
 
@@ -76,7 +78,7 @@ public class EmployeeController {
     public void showAddRecord(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addRecord.fxml"));
-            loader.setController(new CriminalController());
+            loader.setController(new CriminalRecordController());
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Criminals");
@@ -90,17 +92,8 @@ public class EmployeeController {
 
 
     public void showLogout(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("CR Logout");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
+            Stage stage = (Stage) logoutBtn.getScene().getWindow();
             stage.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void deleteCriminal (ActionEvent event) {

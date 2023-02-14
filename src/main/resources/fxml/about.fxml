@@ -15,7 +15,7 @@
             <Font name="Georgia" size="18.0" />
          </font>
       </TextArea>
-      <Hyperlink layoutX="209.0" layoutY="306.0" text="https://github.com/arovcanin1/CriminalRecords" />
+      <Hyperlink layoutX="209.0" layoutY="306.0" text="https://github.com/arovcanin1/CriminalRecords" underline="true" />
    </children>
 
 </AnchorPane>

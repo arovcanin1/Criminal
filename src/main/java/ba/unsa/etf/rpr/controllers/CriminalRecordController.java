@@ -29,7 +29,7 @@ public class CriminalRecordController {
         this.criminal = criminal;
     }
 
-    public void addNewRecord(ActionEvent event) {
+    /*public void addNewRecord(ActionEvent event) {
 
         try {
             CriminalRecord criminalRecord = new CriminalRecord();
@@ -44,5 +44,5 @@ public class CriminalRecordController {
         } catch (CriminalRecordsException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-    }
+    }*/
 }
