@@ -16,6 +16,8 @@ import java.io.IOException;
 import java.util.List;
 import javafx.scene.control.ListView;
 
+import javax.swing.*;
+
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class EmployeeController {
@@ -23,6 +25,8 @@ public class EmployeeController {
     private Employee employee;
 
     public ListView listView;
+
+    Criminal criminal = new Criminal();
 
     public EmployeeController() {
         employee = new Employee();
@@ -62,12 +66,19 @@ public class EmployeeController {
         }
     }
 
+    public void showCriminal(ActionEvent event) {
+        criminal = (Criminal) listView.getSelectionModel().getSelectedItems();
+        System.out.println(criminal.getId());
+
+    }
+
+
     public void showLogout(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
-            stage.setTitle("CR About");
+            stage.setTitle("CR Logout");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.close();

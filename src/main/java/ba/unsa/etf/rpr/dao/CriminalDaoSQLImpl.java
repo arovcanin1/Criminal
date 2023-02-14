@@ -80,4 +80,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
         return allCriminalsList;
     }
+
+
+
 }
