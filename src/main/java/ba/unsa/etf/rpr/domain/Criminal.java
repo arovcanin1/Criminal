@@ -2,6 +2,7 @@ package ba.unsa.etf.rpr.domain;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 public class Criminal implements Idable {
        private int id;
@@ -71,4 +72,20 @@ public class Criminal implements Idable {
     public void setGender(Gender gender) {
         this.gender = gender;
     }
+    @Override
+    public boolean equals(Object obj){
+        if (obj == this) return true;
+        Criminal criminal = (Criminal) obj;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        return id == criminal.id && Objects.equals(firstName, criminal.firstName) &&
+                Objects.equals(lastName, criminal.lastName) &&
+                Objects.equals(jmbg, criminal.jmbg) &&
+                Objects.equals(date, criminal.date) && Objects.equals(gender, criminal.gender);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, jmbg, date, gender);
+    }
+
 }

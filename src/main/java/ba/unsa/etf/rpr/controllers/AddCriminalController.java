@@ -31,11 +31,10 @@ public class AddCriminalController {
             criminal.setLastName(lastNameFld.getText());
             criminal.setJmbg(jmbgFld.getText());
             criminal.setBirthDate(birthDatePicker.getValue());
-            if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
-            else criminal.setGender(Gender.FEMALE);
+            //if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
+            //else criminal.setGender(Gender.FEMALE);
 
             criminalManager.add(criminal);
-            System.out.println("THISS NEW HAPPENS");
 
             Stage stage = (Stage) confirmBtn.getScene().getWindow();
             stage.close();
@@ -47,7 +46,7 @@ public class AddCriminalController {
             stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage());
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 }

@@ -19,7 +19,6 @@ public class CriminalController {
     public void showAddCriminal(ActionEvent event) {
         try {
             Stage stage = new Stage();
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
             loader.setController(new AddCriminalController());
             Parent root = loader.load();
@@ -27,7 +26,7 @@ public class CriminalController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
