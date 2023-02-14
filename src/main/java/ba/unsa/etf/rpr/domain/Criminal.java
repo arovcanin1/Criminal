@@ -8,7 +8,7 @@ public class Criminal implements Idable {
        private String firstName;
        private String lastName;
        private String jmbg;
-       private LocalDate birthDate;
+       private LocalDate date;
        private Gender gender;
 
     public Criminal(int id, String firstName, String lastName, String jmbg, LocalDate birthDate, Gender gender) {
@@ -16,7 +16,7 @@ public class Criminal implements Idable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.jmbg = jmbg;
-        this.birthDate = birthDate;
+        this.date = birthDate;
         this.gender = gender;
     }
 
@@ -57,11 +57,11 @@ public class Criminal implements Idable {
     }
 
     public LocalDate getBirthDate() {
-        return birthDate;
+        return date;
     }
 
     public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
+        this.date = birthDate;
     }
 
     public Gender getGender() {
