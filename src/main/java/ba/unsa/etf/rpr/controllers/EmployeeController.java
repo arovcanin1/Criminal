@@ -73,6 +73,21 @@ public class EmployeeController {
         }
     }
 
+    public void showAddRecord(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addRecord.fxml"));
+            loader.setController(new CriminalController());
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("CR Criminals");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
     public void showLogout(ActionEvent event) {
         try {
