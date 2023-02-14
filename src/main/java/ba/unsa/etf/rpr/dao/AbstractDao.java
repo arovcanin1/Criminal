@@ -133,5 +133,17 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    public void delete (int id) throws CriminalRecordsException {
+        String query = "DELETE FROM " + tableName + " WHERE id = ? ";
+
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            statement.setObject(1, id);
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+    }
+
 
 }

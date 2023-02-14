@@ -5,24 +5,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="574.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="logoutBtn" layoutX="561.0" layoutY="13.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="658.0" layoutY="26.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
 
-      <ImageView fitHeight="344.0" fitWidth="352.0" layoutY="62.0">
+      <ImageView fitHeight="56.0" fitWidth="70.0" layoutX="46.0" layoutY="11.0">
          <Image url="@../img/criminals.jpg" />
       </ImageView>
-      <Label layoutX="103.0" layoutY="1.0" prefHeight="50.0" prefWidth="455.0" text="WELCOME TO CRIMINAL RECORDS">
+      <Label layoutX="145.0" layoutY="12.0" prefHeight="50.0" prefWidth="455.0" text="WELCOME TO CRIMINAL RECORDS">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="362.0" layoutY="96.0" prefHeight="234.0" prefWidth="268.0" />
-      <Label layoutX="449.0" layoutY="74.0" text="All criminals">
+      <ListView fx:id="listView" layoutX="24.0" layoutY="129.0" prefHeight="234.0" prefWidth="225.0" />
+      <Label layoutX="102.0" layoutY="107.0" text="All criminals">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="addCriminalBtn" layoutX="362.0" layoutY="338.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal" />
+      <Button fx:id="addCriminalBtn" layoutX="27.0" layoutY="371.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal" />
+      <Label layoutX="404.0" layoutY="107.0" text="Details about selected criminal">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <ListView fx:id="listViewR" layoutX="492.0" layoutY="129.0" prefHeight="234.0" prefWidth="226.0" />
    </children>
 </AnchorPane>

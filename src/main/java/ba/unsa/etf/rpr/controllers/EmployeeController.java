@@ -7,11 +7,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.AccessibleRole;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.List;
 import javafx.scene.control.ListView;
@@ -24,8 +26,10 @@ public class EmployeeController {
 
     private Employee employee;
 
+
     public ListView listView;
 
+    public ListView listViewR;
     Criminal criminal = new Criminal();
 
     public EmployeeController() {
@@ -37,14 +41,13 @@ public class EmployeeController {
     }
 
     public void initialize() {
-        ObservableList items = FXCollections.observableArrayList();
+        ObservableList criminalItems = FXCollections.observableArrayList();
         try {
             List<Criminal> criminalsList = DaoFactory.criminalsDao().allCriminals();
             for (int i = 0; i < criminalsList.size(); i++) {
-                items.add(criminalsList.get(i).getFirstName() + " " + criminalsList.get(i).getLastName());
+                criminalItems.add(criminalsList.get(i).getFirstName() + " " + criminalsList.get(i).getLastName());
             }
-
-            listView.setItems(items);
+            listView.setItems(criminalItems);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -66,10 +69,6 @@ public class EmployeeController {
         }
     }
 
-    public void showCriminal(ActionEvent event) {
-        criminal = (Criminal) listView.getSelectionModel().getSelectedItems();
-        System.out.println(criminal.getId());
-    }
 
     public void showLogout(ActionEvent event) {
         try {
