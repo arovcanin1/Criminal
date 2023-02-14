@@ -46,7 +46,7 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
             criminalRecord.setDescription(rs.getString("description"));
             criminalRecord.setPlace(rs.getString("place"));
             criminalRecord.setDate(rs.getDate("date").toLocalDate());
-            criminalRecord.setCode(rs.getInt("code"));
+            criminalRecord.setCode(rs.getString("code"));
             criminalRecord.setCriminal(DaoFactory.criminalsDao().getById(rs.getInt("criminalId")));
             return criminalRecord;
         } catch (SQLException e) {

@@ -8,10 +8,10 @@ public class CriminalRecord implements Idable {
     private String description;
     private String place;
     private LocalDate date;
-    private int code;
+    private String code;
     private Criminal criminal;
 
-    public CriminalRecord(int id, String description, String place, LocalDate date, int code, Criminal criminal) {
+    public CriminalRecord(int id, String description, String place, LocalDate date, String code, Criminal criminal) {
         this.id = id;
         this.description = description;
         this.place = place;
@@ -56,7 +56,7 @@ public class CriminalRecord implements Idable {
         this.date = date;
     }
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -68,7 +68,7 @@ public class CriminalRecord implements Idable {
         this.criminal = criminal;
     }
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 }

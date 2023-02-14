@@ -6,12 +6,12 @@
 
 <AnchorPane prefHeight="357.0" prefWidth="517.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="23.0" layoutY="194.0" prefHeight="110.0" prefWidth="471.0" />
+      <TextField fx:id="descriptionFld" layoutX="23.0" layoutY="194.0" prefHeight="110.0" prefWidth="471.0" />
       <Label layoutX="23.0" layoutY="171.0" text="Description">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Label>
-      <Button layoutX="385.0" layoutY="319.0" mnemonicParsing="false" text="Add new record">
+      <Button layoutX="385.0" layoutY="319.0" mnemonicParsing="false" onAction="#addNewRecord" text="Add new record">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
@@ -28,8 +28,8 @@
          <font>
             <Font name="Arial" size="13.0" />
          </font></Label>
-      <TextField layoutX="75.0" layoutY="18.0" />
-      <TextField layoutX="75.0" layoutY="60.0" />
-      <TextField layoutX="76.0" layoutY="103.0" />
+      <TextField fx:id="placeFld" layoutX="75.0" layoutY="18.0" />
+      <TextField fx:id="codeFld" layoutX="76.0" layoutY="103.0" />
+      <DatePicker fx:id="dateFld" layoutX="76.0" layoutY="59.0" prefHeight="26.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
