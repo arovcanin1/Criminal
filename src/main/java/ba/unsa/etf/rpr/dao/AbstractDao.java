@@ -5,9 +5,7 @@ import ba.unsa.etf.rpr.domain.Idable;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.sql.*;
-import java.util.AbstractMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
@@ -112,6 +110,24 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             rs.next();
             item.setId(rs.getInt(1));
             return item;
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+    }
+
+    public List<T> getAll() throws CriminalRecordsException {
+        String query = "SELECT * FROM " + tableName;
+        List<T> results = new ArrayList<>();
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                T object = row2object(rs);
+                results.add(object);
+            }
+
+            rs.close();
+            return results;
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage(), e);
         }

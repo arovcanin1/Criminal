@@ -8,6 +8,8 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -42,7 +44,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
             criminal.setLastName(rs.getString("lastName"));
             criminal.setJmbg(rs.getString("jmbg"));
             criminal.setBirthDate(rs.getDate("date").toLocalDate());
-            criminal.setGender(Gender.valueOf(rs.getString("gender")));
+            //criminal.setGender(Gender.valueOf(rs.getString("gender")));
             return criminal;
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage());
@@ -57,7 +59,25 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         item.put("lastName", object.getLastName());
         item.put("jmbg", object.getJmbg());
         item.put("date", object.getBirthDate());
-        item.put("gender", object.getGender());
+        //item.put("gender", object.getGender());
         return item;
+    }
+
+    public List<Criminal> allCriminals() throws CriminalRecordsException {
+        String query = "SELECT * FROM Criminal";
+        List<Criminal> allCriminalsList = new ArrayList<>();
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            ResultSet rs = statement.executeQuery();
+            while(rs.next()) {
+                Criminal result = row2object(rs);
+                allCriminalsList.add(result);
+            }
+
+
+        } catch (Exception e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+        return allCriminalsList;
     }
 }

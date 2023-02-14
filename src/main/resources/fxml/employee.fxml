@@ -7,18 +7,22 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="117.0" layoutY="2.0" mnemonicParsing="false" text="Home" />
-      <Button fx:id="aboutBtn" layoutX="175.0" layoutY="2.0" mnemonicParsing="false" onAction="#showAbout" text="About" />
-      <Button fx:id="logoutBtn" layoutX="611.0" layoutY="2.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
-      <Button fx:id="criminalsBtn" layoutX="235.0" layoutY="2.0" mnemonicParsing="false" onAction="#showCriminals" text="Criminals" />
+      <Button fx:id="logoutBtn" layoutX="582.0" layoutY="13.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
 
-      <ImageView fitHeight="407.0" fitWidth="680.0" layoutY="29.0">
-         <Image url="@../img/cr.jpg" />
+      <ImageView fitHeight="344.0" fitWidth="313.0" layoutY="62.0">
+         <Image url="@../img/criminals.jpg" />
       </ImageView>
-      <Label layoutX="141.0" layoutY="44.0" prefHeight="49.0" prefWidth="126.0" text="WELCOME">
+      <Label layoutX="103.0" layoutY="1.0" prefHeight="50.0" prefWidth="455.0" text="WELCOME TO CRIMINAL RECORDS">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
+      <ListView fx:id="listView" layoutX="317.0" layoutY="96.0" prefHeight="233.0" prefWidth="333.0" />
+      <Label layoutX="449.0" layoutY="74.0" text="All criminals">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="addCriminalBtn" layoutX="331.0" layoutY="339.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal" />
    </children>
 </AnchorPane>
