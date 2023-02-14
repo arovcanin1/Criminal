@@ -55,6 +55,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
+    @Override
     public Employee row2object(ResultSet rs) throws CriminalRecordsException, SQLException {
 
         try {
@@ -71,6 +72,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
+    @Override
     public Map<String, Object> object2row(Employee object) {
         Map<String, Object> item = new TreeMap<String, Object>();
         item.put("id", object.getId());

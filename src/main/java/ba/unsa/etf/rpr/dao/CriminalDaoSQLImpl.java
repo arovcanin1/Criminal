@@ -36,6 +36,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
     }
 
+    @Override
     public Criminal row2object(ResultSet rs) throws CriminalRecordsException {
         try {
             Criminal criminal = new Criminal();
@@ -51,6 +52,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
     }
 
+    @Override
     public Map<String, Object> object2row (Criminal object) {
         Map<String, Object> item = new TreeMap<>();
 
