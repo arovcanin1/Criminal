@@ -11,5 +11,7 @@ public interface Dao<T> {
     T add(T item) throws CriminalRecordsException;
     List<T> getAll() throws CriminalRecordsException;
 
+    void delete(int id) throws CriminalRecordsException;
+
 
 }

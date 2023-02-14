@@ -1,8 +1,10 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.Employee;
+import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +18,8 @@ import javafx.stage.Stage;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
+
 import javafx.scene.control.ListView;
 
 import javax.swing.*;
@@ -81,6 +85,31 @@ public class EmployeeController {
             stage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteCriminal (ActionEvent event) {
+        int selected = listView.getSelectionModel().getSelectedIndex();
+        if (selected != -1) {
+            Object delete = listView.getSelectionModel().getSelectedItem();
+
+            int newSelected = (selected == listView.getItems().size() - 1)
+                    ? selected-1
+                    : selected;
+
+            listView.getItems().remove(selected);
+
+            try {
+                DaoFactory.criminalsDao().allCriminals().remove(delete);
+                String[] i = delete.toString().split(" ");
+                int iDelete = Integer.parseInt(i[1]);
+                DaoFactory.criminalsDao().delete(iDelete);
+            } catch (CriminalRecordsException e) {
+                throw new RuntimeException();
+            }
+
+            listView.refresh();
+            listView.getSelectionModel().select(newSelected);
         }
     }
 

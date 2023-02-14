@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="357.0" prefWidth="517.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField layoutX="23.0" layoutY="194.0" prefHeight="110.0" prefWidth="471.0" />
+      <Label layoutX="23.0" layoutY="171.0" text="Description">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <Button layoutX="385.0" layoutY="319.0" mnemonicParsing="false" text="Add new record">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="23.0" layoutY="21.0" prefHeight="18.0" prefWidth="38.0" text="Place">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <Label layoutX="23.0" layoutY="64.0" text="Date">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <Label layoutX="23.0" layoutY="106.0" prefHeight="18.0" prefWidth="38.0" text="Code">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Label>
+      <TextField layoutX="75.0" layoutY="18.0" />
+      <TextField layoutX="75.0" layoutY="60.0" />
+      <TextField layoutX="76.0" layoutY="103.0" />
+   </children>
+</AnchorPane>
