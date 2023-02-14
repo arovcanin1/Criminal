@@ -34,7 +34,17 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
     }
 
     public CriminalRecord row2object(ResultSet rs) throws CriminalRecordsException {
-        return null;
+        CriminalRecord criminalRecord = new CriminalRecord();
+        try {
+            criminalRecord.setId(rs.getInt("id"));
+            criminalRecord.setDescription(rs.getString("description"));
+            criminalRecord.setPlace(rs.getString("place"));
+            criminalRecord.setDate(rs.getDate("date").toLocalDate());
+            criminalRecord.setCode(rs.getInt("code"));
+            return criminalRecord;
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage());
+        }
     }
 
     public Map<String, Object> object2row(CriminalRecord object) {

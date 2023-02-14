@@ -1,15 +1,16 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CriminalRecord implements Idable {
     private int id;
     private String description;
     private String place;
-    private Date date;
+    private LocalDate date;
     private int code;
 
-    public CriminalRecord(int id, String description, String place, Date date, int code) {
+    public CriminalRecord(int id, String description, String place, LocalDate date, int code) {
         this.id = id;
         this.description = description;
         this.place = place;
@@ -45,11 +46,11 @@ public class CriminalRecord implements Idable {
         this.place = place;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
