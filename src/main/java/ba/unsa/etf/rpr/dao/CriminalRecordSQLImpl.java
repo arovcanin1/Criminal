@@ -8,12 +8,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implements CriminalRecordDao {
     public CriminalRecordSQLImpl() {
         super("CriminalRecord");
     }
 
+    @Override
     public CriminalRecord getById(int id) throws CriminalRecordsException {
         String query = "SELECT * FROM CriminalRecord WHERE id = ?";
 
@@ -33,6 +35,8 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         }
     }
 
+
+    @Override
     public CriminalRecord row2object(ResultSet rs) throws CriminalRecordsException {
         CriminalRecord criminalRecord = new CriminalRecord();
         try {
@@ -47,7 +51,15 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         }
     }
 
+    @Override
     public Map<String, Object> object2row(CriminalRecord object) {
-        return null;
+        Map<String, Object> item = new TreeMap<String, Object>();
+
+        item.put("id", object.getId());
+        item.put("description", object.getDescription());
+        item.put("place", object.getPlace());
+        item.put("date", object.getDate());
+        item.put("code", object.getCode());
+        return item;
     }
 }
