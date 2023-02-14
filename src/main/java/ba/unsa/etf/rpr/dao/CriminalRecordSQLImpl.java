@@ -47,6 +47,7 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
             criminalRecord.setPlace(rs.getString("place"));
             criminalRecord.setDate(rs.getDate("date").toLocalDate());
             criminalRecord.setCode(rs.getInt("code"));
+            criminalRecord.setCriminal(DaoFactory.criminalsDao().getById(rs.getInt("criminalId")));
             return criminalRecord;
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage());
@@ -62,6 +63,7 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         item.put("place", object.getPlace());
         item.put("date", object.getDate());
         item.put("code", object.getCode());
+        item.put("criminalId", object.getCriminal().getId());
         return item;
     }
 
