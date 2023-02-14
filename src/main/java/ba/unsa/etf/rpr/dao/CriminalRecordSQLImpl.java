@@ -7,6 +7,8 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -61,5 +63,25 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         item.put("date", object.getDate());
         item.put("code", object.getCode());
         return item;
+    }
+
+    public List<CriminalRecord> allCriminalRecords (int criminalId) throws CriminalRecordsException {
+        List<CriminalRecord> allRecords = new ArrayList<>();
+        String query = "SELECT * FROM CriminalRecords WHERE criminalId = ?";
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            statement.setInt(1, criminalId);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()) {
+                CriminalRecord result = row2object(rs);
+                allRecords.add(result);
+            }
+        } catch (Exception e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+
+        return allRecords;
+
     }
 }
