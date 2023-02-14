@@ -36,8 +36,6 @@ public class HomeController {
 
     public void showLogin(ActionEvent event) {
         try {
-            Stage s = (Stage) loginBtn.getScene().getWindow();
-            s.close();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
             loader.setController(new LoginController());
             Parent root = loader.load();

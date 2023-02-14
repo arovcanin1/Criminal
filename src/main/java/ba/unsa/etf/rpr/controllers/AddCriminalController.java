@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.controllers;
 
+import ba.unsa.etf.rpr.business.CriminalManager;
+import ba.unsa.etf.rpr.business.EmployeeManager;
 import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.Gender;
 import javafx.event.ActionEvent;
@@ -18,8 +20,9 @@ public class AddCriminalController {
     public TextField jmbgFld;
     public DatePicker birthDatePicker;
     public CheckBox genderMaleCheck;
-    public CheckBox genderFemaleCheck;
     public Button confirmBtn;
+    private CriminalManager criminalManager = new CriminalManager();
+
 
     public void addCriminal(ActionEvent event) {
         try {
@@ -31,7 +34,12 @@ public class AddCriminalController {
             if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
             else criminal.setGender(Gender.FEMALE);
 
-            Stage stage = new Stage();
+            criminalManager.add(criminal);
+            System.out.println("THISS NEW HAPPENS");
+
+            Stage stage = (Stage) confirmBtn.getScene().getWindow();
+            stage.close();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/criminals.fxml"));
             loader.setController(new CriminalController());
             Parent root = loader.load();

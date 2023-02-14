@@ -60,13 +60,12 @@ public class EmployeeController {
     public void showLogout(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
-            loader.setController(new HomeController());
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR About");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
-            stage.show();
+            stage.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

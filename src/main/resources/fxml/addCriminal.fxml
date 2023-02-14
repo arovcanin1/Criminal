@@ -62,13 +62,6 @@
             <Font name="Arial" size="13.0" />
          </font>
       </CheckBox>
-      <Button fx:id="confirmBtn" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-         <GridPane.margin>
-            <Insets top="20.0" />
-         </GridPane.margin>
-      </Button>
+      <Button fx:id="confirmBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCriminal" prefHeight="25.0" prefWidth="200.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
    </children>
 </GridPane>

@@ -28,10 +28,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="loginBtnClick" mnemonicParsing="false" onAction="#showEmployeeWindow" prefHeight="26.0" prefWidth="275.0" text="Login" GridPane.columnSpan="2" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Button>
+            <Button fx:id="loginBtnClick" mnemonicParsing="false" onAction="#showEmployeeWindow" prefHeight="26.0" prefWidth="270.0" text="Login" GridPane.columnSpan="2" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

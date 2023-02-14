@@ -44,7 +44,7 @@ public class RegistrationController {
             stage.setResizable(false);
             stage.show();
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage());
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 }

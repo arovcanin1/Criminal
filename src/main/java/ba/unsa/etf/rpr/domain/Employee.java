@@ -1,5 +1,7 @@
 package ba.unsa.etf.rpr.domain;
 
+import java.util.Objects;
+
 public class Employee implements Idable {
 
     private int id;
@@ -69,4 +71,21 @@ public class Employee implements Idable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public boolean equals(Object obj){
+        if (obj == this) return true;
+        Employee employee = (Employee) obj;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        return id == employee.id && Objects.equals(firstName, employee.firstName) &&
+                Objects.equals(lastName, employee.lastName) &&
+                Objects.equals(username, employee.username) &&
+                Objects.equals(email, employee.email);
+    }
+
+   @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, lastName, username, email);
+   }
+
 }

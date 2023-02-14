@@ -17,7 +17,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
 
     @Override
     public Criminal getById(int id) throws CriminalRecordsException {
-        String query = "SELECT * FROM Employee WHERE id = ?";
+        String query = "SELECT * FROM Criminal WHERE id = ?";
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setInt(1, id);
@@ -27,7 +27,7 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
                 rs.close();
                 return result;
             } else {
-                throw new CriminalRecordsException("Employee does not exist!");
+                throw new CriminalRecordsException("Criminal does not exist!");
             }
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage(), e);

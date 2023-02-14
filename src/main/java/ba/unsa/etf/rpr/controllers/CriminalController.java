@@ -14,14 +14,15 @@ import java.io.IOException;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class CriminalController {
-
+     Button addCriminalBtn;
 
     public void showAddCriminal(ActionEvent event) {
         try {
+            Stage stage = new Stage();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
             loader.setController(new AddCriminalController());
             Parent root = loader.load();
-            Stage stage = new Stage();
             stage.setTitle("CR Add Criminals");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);

@@ -56,29 +56,10 @@ public class EmployeeManager {
 
     public Employee loginSearch(String username, String password) throws CriminalRecordsException {
 
-        System.out.println("THIS HAPPENS!");
-
-        System.out.println("THAN THIS HAPPENS" + username);
-
-       // Employee employee = DaoFactory.employeesDao().getByUsername(username);
-
-
-        Employee employee = new Employee();
-        employee.setUsername(username);
-
-
-
-
-        /* if (username == null || password.equals("")) {
-            System.out.println("Error check!");
+        Employee employee = DaoFactory.employeesDao().getByUsername(username);
+        if (username == null || password.equals("")) {
             throw new CriminalRecordsException("Each field must be filled!");
-
         }
-
-        if (!employee.getPassword().equals(password)) {
-            System.out.println("Error check!");
-            throw new CriminalRecordsException("Password is not correct!");
-        }*/
 
         return employee;
     }
