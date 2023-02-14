@@ -69,9 +69,7 @@ public class EmployeeController {
     public void showCriminal(ActionEvent event) {
         criminal = (Criminal) listView.getSelectionModel().getSelectedItems();
         System.out.println(criminal.getId());
-
     }
-
 
     public void showLogout(ActionEvent event) {
         try {

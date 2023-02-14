@@ -9,13 +9,15 @@ public class CriminalRecord implements Idable {
     private String place;
     private LocalDate date;
     private int code;
+    private Criminal criminal;
 
-    public CriminalRecord(int id, String description, String place, LocalDate date, int code) {
+    public CriminalRecord(int id, String description, String place, LocalDate date, int code, Criminal criminal) {
         this.id = id;
         this.description = description;
         this.place = place;
         this.date = date;
         this.code = code;
+        this.criminal = criminal;
     }
 
     public CriminalRecord() {}
@@ -56,6 +58,14 @@ public class CriminalRecord implements Idable {
 
     public int getCode() {
         return code;
+    }
+
+    public Criminal getCriminal() {
+        return criminal;
+    }
+
+    public void setCriminal(Criminal criminal) {
+        this.criminal = criminal;
     }
 
     public void setCode(int code) {
