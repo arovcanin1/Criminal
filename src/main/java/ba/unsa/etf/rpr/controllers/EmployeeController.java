@@ -64,9 +64,11 @@ public class EmployeeController {
 
         try {
             List<Criminal> criminalsList = DaoFactory.criminalsDao().allCriminals();
+            List<CriminalRecord> criminalRecords = DaoFactory.criminalRecordsDao().getAll();
 
             for (int i = 0; i < criminalsList.size(); i++) {
                 criminalItems.add(criminalsList.get(i).getJmbg());
+                allRecords.add(DaoFactory.criminalRecordsDao().getById(criminalsList.get(i).getId()).getCode());
 
             }
             listView.setItems(criminalItems);
@@ -78,6 +80,15 @@ public class EmployeeController {
 
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
                 jmbgFld.setText(listView.getSelectionModel().getSelectedItem().toString());
+                    listViewRecords.setItems(allRecords);
+
+
+                    try {
+                        c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
 
                 try {
                     firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
@@ -111,13 +122,8 @@ public class EmployeeController {
 
     public void showAddRecord(ActionEvent event) {
         try {
-            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
-                try {
-                    Criminal c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            });
+
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addRecord.fxml"));
             loader.setController(new CriminalRecordController(c));
             Parent root = loader.load();
