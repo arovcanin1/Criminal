@@ -10,12 +10,12 @@
       <ImageView fitHeight="377.0" fitWidth="462.0" layoutY="-1.0">
          <Image url="@../img/cr.jpg" />
       </ImageView>
-      <TextArea layoutX="92.0" layoutY="66.0" prefHeight="242.0" prefWidth="277.0" text="This is a smaller criminal records application &#10;   that has the ability to add, delete etc. &#10;               criminals and their records.&#10;&#10;&#10;&#10;&#10;&#10;&#10;                                  Contact&#10;                          Amila Rovčanin &#10;">
+      <TextArea layoutX="92.0" layoutY="78.0" prefHeight="219.0" prefWidth="278.0" text="This is a smaller criminal records application &#10;   that has the ability to add, delete etc. &#10;               criminals and their records.&#10;&#10;&#10;&#10;&#10;&#10;&#10;                                  Contact&#10;                          Amila Rovčanin &#10;">
          <font>
             <Font name="Georgia" size="13.0" />
          </font>
       </TextArea>
-      <Hyperlink layoutX="100.0" layoutY="237.0" text="https://github.com/arovcanin1/CriminalRecords" underline="true" />
+      <Hyperlink layoutX="101.0" layoutY="241.0" text="https://github.com/arovcanin1/CriminalRecords" underline="true" />
    </children>
 
 </AnchorPane>
