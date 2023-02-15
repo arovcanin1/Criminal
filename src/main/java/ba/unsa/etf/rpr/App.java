@@ -121,12 +121,10 @@ public class App {
             showEmployee(id);
             return;
         }
-
         System.out.println("All criminals");
         for (int i = 0; i < listOfCriminals.size(); i++) {
             System.out.println(i + " " + listOfCriminals.get(i).getJmbg());
         }
-
         showEmployee(id);
     }
 
@@ -147,10 +145,17 @@ public class App {
 
         System.out.println("List of criminal records");
         System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(listOfCriminals.get(number).getId()).get(number).getCode());
-        System.out.println("If you want do see details about criminal record insert given code");
+        System.out.println("If you want to see details about criminal record insert given code");
+        System.out.println("If you want to get back to options insert back");
         Scanner codeScanner = new Scanner(System.in);
         String code;
         code = codeScanner.next();
+        if (code.equals("back")) showEmployee(id);
+        else showCriminalRecordDetails(code, id);
+    }
+
+    public static void showCriminalRecordDetails(String code, int id) throws CriminalRecordsException {
         System.out.println(DaoFactory.criminalRecordsDao().getByCode(code).toString());
+        showEmployee(id);
     }
 }
