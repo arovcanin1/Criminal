@@ -19,7 +19,7 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
 
     @Override
     public CriminalRecord getById(int id) throws CriminalRecordsException {
-        String query = "SELECT * FROM CriminalRecord WHERE id = ?";
+        String query = "SELECT * FROM CriminalRecord WHERE criminalId = ?";
 
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);

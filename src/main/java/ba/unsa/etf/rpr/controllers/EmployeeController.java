@@ -3,6 +3,7 @@ package ba.unsa.etf.rpr.controllers;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
+import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import javafx.collections.FXCollections;
@@ -43,7 +44,7 @@ public class EmployeeController {
 
     public ListView listView;
 
-    public ListView listViewR;
+    public ListView listViewRecords;
     Criminal criminal = new Criminal();
     Criminal c = new Criminal();
 
@@ -58,6 +59,7 @@ public class EmployeeController {
     public void initialize() {
         ObservableList criminalItems = FXCollections.observableArrayList();
         ObservableList allItems = FXCollections.observableArrayList();
+        ObservableList allRecords = FXCollections.observableArrayList();
 
 
         try {
@@ -65,9 +67,10 @@ public class EmployeeController {
 
             for (int i = 0; i < criminalsList.size(); i++) {
                 criminalItems.add(criminalsList.get(i).getJmbg());
-                allItems.add(criminalsList.get(i).getFirstName() + criminalsList.get(i).getLastName() + criminalsList.get(i).getBirthDate());
+
             }
             listView.setItems(criminalItems);
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,6 +78,7 @@ public class EmployeeController {
 
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
                 jmbgFld.setText(listView.getSelectionModel().getSelectedItem().toString());
+
                 try {
                     firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
                     lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());

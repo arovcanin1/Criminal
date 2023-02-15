@@ -32,7 +32,7 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <ListView fx:id="listViewR" layoutX="492.0" layoutY="129.0" prefHeight="234.0" prefWidth="226.0" />
+      <ListView fx:id="listViewRecords" layoutX="492.0" layoutY="129.0" prefHeight="234.0" prefWidth="226.0" />
       <Button fx:id="deleteBtn" layoutX="146.0" layoutY="371.0" mnemonicParsing="false" onAction="#deleteCriminal" text="Delete criminal">
          <font>
             <Font name="Arial" size="13.0" />

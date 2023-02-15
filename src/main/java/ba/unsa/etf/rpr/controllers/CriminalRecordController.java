@@ -23,11 +23,6 @@ public class CriminalRecordController {
     public Button addRecordBtn;
 
 
-
-    public CriminalRecordController() {
-        criminal = new Criminal();
-    }
-
     public  CriminalRecordController(Criminal criminal) {
         this.criminal = criminal;
     }
