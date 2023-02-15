@@ -152,9 +152,7 @@ public class Criminal implements Idable {
      */
     @Override
     public String toString() {
-        return "Criminal: " + this.firstName + " " + this.lastName +
-                "JMBG: " + this.jmbg +
-                "Birth date: " + this.date;
+        return "First name: " + this.firstName + "/Last name: " + this.lastName + "/nJMBG: " + this.jmbg + "/nBirth date: " + this.date;
     }
 
 }
