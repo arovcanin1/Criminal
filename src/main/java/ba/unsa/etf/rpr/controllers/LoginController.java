@@ -24,8 +24,6 @@ public class LoginController {
     public PasswordField inputPasswordFld;
 
 
-
-
     public void showEmployeeWindow(ActionEvent event) {
 
         try {

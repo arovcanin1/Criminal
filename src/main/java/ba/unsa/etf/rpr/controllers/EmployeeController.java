@@ -48,9 +48,10 @@ public class EmployeeController {
     }
 
     public void initialize() {
-        ObservableList criminalItems = FXCollections.observableArrayList();
+
 
         try {
+            ObservableList criminalItems = FXCollections.observableArrayList();
             List<Criminal> criminalsList = DaoFactory.criminalsDao().allCriminals();
 
             for (int i = 0; i < criminalsList.size(); i++) {
@@ -62,8 +63,9 @@ public class EmployeeController {
         }
 
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
-                List<CriminalRecord> allRecords= new ArrayList<>();
+
                 ObservableList allRecordsItems = FXCollections.observableArrayList();
+
                 jmbgFld.setText(listView.getSelectionModel().getSelectedItem().toString());
                     try {
                         c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
@@ -72,34 +74,37 @@ public class EmployeeController {
                     }
 
                 try {
-                    firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
-                    lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());
-                    birthDateFld.setText(valueOf(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getBirthDate()));
+                    if (listView.getSelectionModel().getSelectedItem() != null) {
+                        firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
+                        lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());
+                        birthDateFld.setText(valueOf(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getBirthDate()));
+                        List<CriminalRecord> allRecords = new ArrayList<>();
+                        allRecords = (DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getId()));
 
-                    allRecords = (DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getId()));
-
-                    for (int i = 0; i < allRecords.size(); i++) {
-                        allRecordsItems.add(allRecords.get(i).getCode());
+                        for (int i = 0; i < allRecords.size(); i++) {
+                            allRecordsItems.add(allRecords.get(i).getCode());
+                        }
+                        listViewRecords.setItems(allRecordsItems);
                     }
-                    listViewRecords.setItems(allRecordsItems);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                    } catch(Exception e){
+                        e.printStackTrace();
+                    }
+
             });
 
         listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
             try {
-                placeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getPlace());
-                dateRecordFld.setText(valueOf(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDate()));
-                descriptionRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDescription());
-                codeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getCode());
+                if (listViewRecords.getSelectionModel().getSelectedItem() != null) {
+                    placeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getPlace());
+                    dateRecordFld.setText(valueOf(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDate()));
+                    descriptionRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDescription());
+                    codeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getCode());
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            listViewRecords.refresh();
+
         });
-
-
     }
 
     public void showAddCriminals(ActionEvent event) {
