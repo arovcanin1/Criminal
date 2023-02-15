@@ -21,7 +21,6 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         return null;
     }
 
-
     public List<CriminalRecord> getByIdNew(int id) throws CriminalRecordsException {
         String query = "SELECT * FROM CriminalRecord WHERE criminalId = ?";
 

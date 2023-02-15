@@ -5,10 +5,7 @@ import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class CriminalRecordController {
@@ -21,10 +18,19 @@ public class CriminalRecordController {
     public TextField codeFld;
     public TextField descriptionFld;
     public Button addRecordBtn;
+    public ListView listView;
 
 
     public  CriminalRecordController(Criminal criminal) {
         this.criminal = criminal;
+    }
+
+    public CriminalRecordController() {
+        criminal = new Criminal();
+    }
+
+    public void setList(ListView listView) {
+        this.listView = listView;
     }
 
 
