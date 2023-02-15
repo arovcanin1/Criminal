@@ -101,8 +101,6 @@ public class EmployeeController {
 
     }
 
-
-
     public void showAddCriminals(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
