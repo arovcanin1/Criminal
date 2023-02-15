@@ -7,17 +7,29 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 import java.sql.*;
 import java.util.*;
 
-
+/**
+ * Class AbstractDao that contains methods that are needed for every class
+ */
 public abstract class AbstractDao<T extends Idable> implements Dao<T> {
-
+    /**
+     * Attributes for connection to db
+     * Singleton patern
+     */
     private static Connection connection = null;
     private String tableName;
 
+    /**
+     * Constructor with one parameter
+     * @param tableName
+     */
     public AbstractDao(String tableName) {
         this.tableName = tableName;
         createConnection();
     }
 
+    /**
+     * Method for creating connection to database
+     */
     private static void createConnection() {
         if (AbstractDao.connection == null) {
             try {
@@ -44,12 +56,28 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Constructor for connection
+     * @return
+     */
     public static Connection getConnection() {
         return AbstractDao.connection;
     }
 
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs
+     * @return a Bean object for specific table
+     * @throws CriminalRecordsException if there is no requested data
+     * @throws SQLException in case if there is error with db
+     */
     public abstract T row2object(ResultSet rs) throws CriminalRecordsException, SQLException;
 
+    /**
+     * Method for mapping Object into Map
+     * @param Object object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     public abstract Map<String, Object> object2row (T Object);
 
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row) {
