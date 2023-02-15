@@ -60,6 +60,10 @@ public class CriminalRecord implements Idable {
         return code;
     }
 
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     public Criminal getCriminal() {
         return criminal;
     }
@@ -68,7 +72,5 @@ public class CriminalRecord implements Idable {
         this.criminal = criminal;
     }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
+
 }

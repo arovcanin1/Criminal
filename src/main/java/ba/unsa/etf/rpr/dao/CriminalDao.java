@@ -9,5 +9,6 @@ import java.util.List;
 public interface CriminalDao extends Dao<Criminal> {
 
       public List<Criminal> allCriminals() throws CriminalRecordsException;
+      public Criminal getByJMBG(String jmbg) throws CriminalRecordsException;
 
 }

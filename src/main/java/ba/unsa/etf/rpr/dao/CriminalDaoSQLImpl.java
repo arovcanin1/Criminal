@@ -15,7 +15,9 @@ import java.util.TreeMap;
 
 public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements CriminalDao {
 
-    public CriminalDaoSQLImpl() { super("Criminal"); }
+    public CriminalDaoSQLImpl() {
+        super("Criminal");
+    }
 
     @Override
     public Criminal getById(int id) throws CriminalRecordsException {
@@ -30,6 +32,25 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
                 return result;
             } else {
                 throw new CriminalRecordsException("Criminal does not exist!");
+            }
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+    }
+
+    public Criminal getByJMBG(String jmbg) throws CriminalRecordsException {
+        String query = "SELECT * FROM Criminal WHERE jmbg = ?";
+
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            statement.setString(1, jmbg);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Criminal result = row2object(rs);
+                rs.close();
+                return result;
+            } else {
+                throw new CriminalRecordsException("Criminal not found!");
             }
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage(), e);

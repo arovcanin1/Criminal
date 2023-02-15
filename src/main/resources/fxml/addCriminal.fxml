@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -44,24 +43,6 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label text="Gender" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </Label>
-      <CheckBox fx:id="genderMaleCheck" mnemonicParsing="false" text="Male" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="35.0" />
-         </GridPane.margin>
-      </CheckBox>
-      <CheckBox fx:id="genderFemaleCheck" mnemonicParsing="false" text="Female" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
-         <font>
-            <Font name="Arial" size="13.0" />
-         </font>
-      </CheckBox>
       <Button fx:id="confirmBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addCriminal" prefHeight="25.0" prefWidth="200.0" text="Confirm" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
    </children>
 </GridPane>

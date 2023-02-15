@@ -22,6 +22,12 @@ public class CriminalController {
     public Button confirmBtn;
     private CriminalManager criminalManager = new CriminalManager();
 
+    public ListView listView;
+
+    public void setList (ListView listView) {
+        this.listView = listView;
+    }
+
 
     public void addCriminal(ActionEvent event) {
         try {
@@ -32,16 +38,18 @@ public class CriminalController {
             criminal.setBirthDate(birthDatePicker.getValue());
             //if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
             //else criminal.setGender(Gender.FEMALE);
+            Stage stage1 = (Stage) confirmBtn.getScene().getWindow();
+            stage1.close();
 
             criminalManager.add(criminal);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
             loader.setController(new CriminalController());
             Parent root = loader.load();
-            Stage stage = (Stage) confirmBtn.getScene().getWindow();
-            stage.close();
+            Stage stage = new Stage();
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+            listView.refresh();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }

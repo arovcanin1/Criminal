@@ -39,5 +39,9 @@
          </font>
       </Button>
       <Button fx:id="addRecordBtn" layoutX="617.0" layoutY="371.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
+      <TextField fx:id="firstNameFld" layoutX="329.0" layoutY="129.0" />
+      <TextField fx:id="lastNameFld" layoutX="330.0" layoutY="164.0" />
+      <TextField fx:id="jmbgFld" layoutX="330.0" layoutY="198.0" />
+      <TextField fx:id="birthDateFld" layoutX="330.0" layoutY="234.0" />
    </children>
 </AnchorPane>

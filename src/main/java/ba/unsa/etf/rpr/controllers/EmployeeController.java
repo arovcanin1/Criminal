@@ -13,11 +13,13 @@ import javafx.scene.AccessibleRole;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,11 +27,17 @@ import javafx.scene.control.ListView;
 
 import javax.swing.*;
 
+import static java.lang.String.valueOf;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
 public class EmployeeController {
 
     private Employee employee;
+
+    public TextField firstNameFld;
+    public TextField lastNameFld;
+    public TextField birthDateFld;
+    public TextField jmbgFld;
 
     public Button logoutBtn;
 
@@ -37,6 +45,7 @@ public class EmployeeController {
 
     public ListView listViewR;
     Criminal criminal = new Criminal();
+    Criminal c = new Criminal();
 
     public EmployeeController() {
         employee = new Employee();
@@ -47,16 +56,35 @@ public class EmployeeController {
     }
 
     public void initialize() {
+        List<String> listofJMBG = new ArrayList<>();
         ObservableList criminalItems = FXCollections.observableArrayList();
+        ObservableList allItems = FXCollections.observableArrayList();
+
+
         try {
             List<Criminal> criminalsList = DaoFactory.criminalsDao().allCriminals();
+
             for (int i = 0; i < criminalsList.size(); i++) {
-                criminalItems.add(criminalsList.get(i).getFirstName() + " " + criminalsList.get(i).getLastName());
+                criminalItems.add(criminalsList.get(i).getJmbg());
+                allItems.add(criminalsList.get(i).getFirstName() + criminalsList.get(i).getLastName() + criminalsList.get(i).getBirthDate());
             }
             listView.setItems(criminalItems);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+                jmbgFld.setText(listView.getSelectionModel().getSelectedItem().toString());
+                try {
+                    firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
+                    lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());
+                    birthDateFld.setText(valueOf(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getBirthDate()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+
     }
 
 
@@ -70,6 +98,9 @@ public class EmployeeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+            CriminalController criminalController = loader.getController();
+            listView.refresh();
+            criminalController.setList(listView);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -77,14 +108,24 @@ public class EmployeeController {
 
     public void showAddRecord(ActionEvent event) {
         try {
+
+
+            listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+                try {
+                    Criminal c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addRecord.fxml"));
-            loader.setController(new CriminalRecordController());
+            loader.setController(new CriminalRecordController(c));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Criminals");
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -110,7 +151,7 @@ public class EmployeeController {
             try {
                 DaoFactory.criminalsDao().allCriminals().remove(delete);
                 String[] i = delete.toString().split(" ");
-                int iDelete = Integer.parseInt(i[1]);
+                int iDelete = Integer.parseInt(i[2]);
                 DaoFactory.criminalsDao().delete(iDelete);
             } catch (CriminalRecordsException e) {
                 throw new RuntimeException();
