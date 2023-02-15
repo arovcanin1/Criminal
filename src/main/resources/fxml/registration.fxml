@@ -6,7 +6,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <GridPane layoutX="168.0" layoutY="67.0" prefHeight="235.0" prefWidth="314.0" vgap="20.0">
+      <GridPane layoutX="143.0" layoutY="43.0" prefHeight="235.0" prefWidth="314.0" vgap="20.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.8" minWidth="96.80000000000001" prefWidth="113.80000000000001" />
           <ColumnConstraints maxWidth="217.0" minWidth="10.0" prefWidth="200.0" />
@@ -57,7 +57,7 @@
                   <Font name="Arial" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="registerBtn" onAction="#registration" mnemonicParsing="false" prefHeight="26.0" prefWidth="251.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+            <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registration" prefHeight="26.0" prefWidth="251.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
                <font>
                   <Font name="Arial" size="13.0" />
                </font></Button>
