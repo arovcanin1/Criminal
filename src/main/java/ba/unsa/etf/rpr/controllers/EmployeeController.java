@@ -146,25 +146,25 @@ public class EmployeeController {
             stage.close();
     }
 
-    public void deleteCriminal (ActionEvent event) {
-        int selected = listView.getSelectionModel().getSelectedIndex();
-        if (selected != -1) {
-            Object delete = listView.getSelectionModel().getSelectedItem();
+    public void deleteCriminal(ActionEvent event) {
 
-            int newSelected = (selected == listView.getItems().size() - 1)
+        int selected = listViewRecords.getSelectionModel().getSelectedIndex();
+        if (selected != -1) {
+            Object delete = listViewRecords.getSelectionModel().getSelectedItem();
+
+            int newSelected = (selected == listViewRecords.getItems().size() - 1)
                     ? selected-1
                     : selected;
 
-            listView.getItems().remove(selected);
+            listViewRecords.getItems().remove(selected);
 
             try {
-                DaoFactory.criminalsDao().allCriminals().remove(delete);
-                String[] i = delete.toString().split(" ");
-                int iDelete = Integer.parseInt(i[2]);
-                DaoFactory.criminalsDao().delete(iDelete);
-            } catch (CriminalRecordsException e) {
-                throw new RuntimeException();
+                DaoFactory.criminalRecordsDao().delete(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getId());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+
+
 
             listView.refresh();
             listView.getSelectionModel().select(newSelected);
