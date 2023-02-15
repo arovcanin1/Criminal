@@ -33,7 +33,6 @@ public class CriminalRecordController {
     }
 
 
-
     public void addNewRecord(ActionEvent event) {
 
         try {
@@ -44,7 +43,7 @@ public class CriminalRecordController {
             criminalRecord.setDate(dateFld.getValue());
             criminalRecord.setCode(codeFld.getText());
             criminalRecord.setDescription(descriptionFld.getText());
-            //criminalRecord.setCriminalId(criminal.getId())
+
 
             criminalRecordMan.add(criminalRecord);
             Stage stage = (Stage) addRecordBtn.getScene().getWindow();

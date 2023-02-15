@@ -56,7 +56,6 @@ public class EmployeeController {
     }
 
     public void initialize() {
-        List<String> listofJMBG = new ArrayList<>();
         ObservableList criminalItems = FXCollections.observableArrayList();
         ObservableList allItems = FXCollections.observableArrayList();
 
@@ -108,8 +107,6 @@ public class EmployeeController {
 
     public void showAddRecord(ActionEvent event) {
         try {
-
-
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
                 try {
                     Criminal c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
@@ -130,6 +127,8 @@ public class EmployeeController {
             throw new RuntimeException(e);
         }
     }
+
+
 
 
     public void showLogout(ActionEvent event) {
