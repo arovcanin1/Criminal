@@ -2,9 +2,11 @@ package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.EmployeeManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
+import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -81,7 +83,7 @@ public class App {
         }
     }
 
-    public static void showEmployee(int id)  {
+    public static void showEmployee(int id) throws CriminalRecordsException  {
         System.out.println("You have following options: ");
         System.out.println("Option 1: Show all criminals");
         System.out.println("Option 2: Show records for criminal");
@@ -101,5 +103,24 @@ public class App {
             else System.out.println("Incorrect option! Enter option again: ");
         }
 
+        switch (option) {
+            case 1: showAllCriminals(id);
+        }
+    }
+
+    private static void showAllCriminals(int id) throws CriminalRecordsException {
+        List<Criminal> listOfCriminals = DaoFactory.criminalsDao().allCriminals();
+        if (listOfCriminals.isEmpty()) {
+            System.out.println("No criminals :)");
+            showEmployee(id);
+            return;
+        }
+
+        System.out.println("All criminals");
+        for (int i = 0; i < listOfCriminals.size(); i++) {
+            System.out.println(listOfCriminals.get(i).getJmbg());
+        }
+
+        showEmployee(id);
     }
 }
