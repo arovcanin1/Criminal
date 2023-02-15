@@ -156,7 +156,7 @@ public class Employee implements Idable {
     }
 
     /**
-     * Method for hashing attributes of employee
+     * Method for hashing attributes of employee class
      * @return
      */
     @Override
