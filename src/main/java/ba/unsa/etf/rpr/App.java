@@ -89,5 +89,17 @@ public class App {
         System.out.println("Option 4: Add new Record");
         System.out.println("Option 5: Delete Record");
         System.out.println("Option 6: Logout");
+
+        Scanner scanner = new Scanner(System.in);
+        int option;
+
+        for(;;) {
+            System.out.println("Choose option: ");
+            option = scanner.nextInt();
+            // Check if options are in correct range
+            if (option > 1 && option < 4) break;
+            else System.out.println("Incorrect option! Enter option again: ");
+        }
+
     }
 }
