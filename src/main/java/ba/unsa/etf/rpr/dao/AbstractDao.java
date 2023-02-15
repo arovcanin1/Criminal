@@ -80,6 +80,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
      */
     public abstract Map<String, Object> object2row (T Object);
 
+    /**
+     * Accepts KV storage of column names and return CSV of columnes and question marks for insert statement
+     * @param row
+     * @return
+     */
     private Map.Entry<String, String> prepareInsertParts(Map<String, Object> row) {
         StringBuilder columns = new StringBuilder();
         StringBuilder questions = new StringBuilder();
@@ -99,6 +104,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return new AbstractMap.SimpleEntry<>(columns.toString(), questions.toString());
     }
 
+    /**
+     * Method for preparing columns for update statement id=?, ...
+     * @param row
+     * @return
+     */
     private String prepareUpdateParts(Map<String, Object> row) {
         StringBuilder columns = new StringBuilder();
 
@@ -115,6 +125,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         return columns.toString();
     }
 
+    /**
+     * Method for adding data into database
+     * @param item - bean for saving to database
+     * @return
+     * @throws CriminalRecordsException
+     */
     public T add(T item) throws CriminalRecordsException {
         Map<String, Object> row = object2row(item);
         Map.Entry<String, String> columns = prepareInsertParts(row);
@@ -131,9 +147,7 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
                 statement.setObject(counter, entry.getValue());
                 counter++;
             }
-
             statement.executeUpdate();
-
             ResultSet rs = statement.getGeneratedKeys();
             rs.next();
             item.setId(rs.getInt(1));
@@ -143,6 +157,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Method for getting all data from specific table
+     * @return
+     * @throws CriminalRecordsException
+     */
     public List<T> getAll() throws CriminalRecordsException {
         String query = "SELECT * FROM " + tableName;
         List<T> results = new ArrayList<>();
@@ -161,6 +180,11 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Method for deleting data from database based on id
+     * @param id - primary key
+     * @throws CriminalRecordsException
+     */
     public void delete (int id) throws CriminalRecordsException {
         String query = "DELETE FROM " + tableName + " WHERE id = ? ";
 
@@ -172,6 +196,4 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             throw new CriminalRecordsException(e.getMessage(), e);
         }
     }
-
-
 }
