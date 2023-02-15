@@ -137,4 +137,9 @@ public class CriminalRecord implements Idable {
     public void setCriminal(Criminal criminal) {
         this.criminal = criminal;
     }
+
+    @Override
+    public String toString() {
+        return "Place: " + this.place + "\nDate: " + this.date + "\nCode: " + this.code + "Description: " + this.description;
+    }
 }
