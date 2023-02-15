@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.EmployeeManager;
+import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.Employee;
@@ -8,6 +9,7 @@ import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.util.List;
 import java.util.Scanner;
+
 
 public class App {
     public static void main(String[] args) throws CriminalRecordsException {
@@ -86,12 +88,12 @@ public class App {
 
     public static void showEmployee(int id) throws CriminalRecordsException  {
         System.out.println("You have following options: ");
-        System.out.println("Option 1: Show all criminals");
-        System.out.println("Option 2: Show records for criminal");
-        System.out.println("Option 3: Add new Criminal");
-        System.out.println("Option 4: Add new Record");
-        System.out.println("Option 5: Delete Record");
-        System.out.println("Option 6: Logout");
+        System.out.println("Option 1: Show details about criminal");
+        System.out.println("Option 3: Show records for criminal");
+        System.out.println("Option 4: Add new Criminal");
+        System.out.println("Option 5: Add new Record");
+        System.out.println("Option 6: Delete Record");
+        System.out.println("Option 7: Logout");
 
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -105,15 +107,16 @@ public class App {
         }
 
         if (option == 1) {
+            System.out.println("List of all criminals");
             showAllCriminals(id);
+            showDetailsForCriminal(id);
+
         }
 
         if (option == 2) {
-            showRecordsForCriminal(id);
+            showDetailsForCriminal(id);
         }
-
     }
-
     private static void showAllCriminals(int id) throws CriminalRecordsException {
         List<Criminal> listOfCriminals = DaoFactory.criminalsDao().allCriminals();
         if (listOfCriminals.isEmpty()) {
@@ -125,34 +128,18 @@ public class App {
         for (int i = 0; i < listOfCriminals.size(); i++) {
             System.out.println(i + " " + listOfCriminals.get(i).getJmbg());
         }
+    }
+
+    public static void showDetailsForCriminal(int id) throws CriminalRecordsException {
+        System.out.println("If you want to see details about criminal insert number!");
+        Scanner choseNumber = new Scanner(System.in);
+        int number = choseNumber.nextInt();
+        System.out.println(DaoFactory.criminalsDao().allCriminals().get(number).toString());
+        System.out.println("Criminal records");
+        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().allCriminals().get(number).getId()));
         showEmployee(id);
     }
 
-    private static void showRecordsForCriminal(int id) throws CriminalRecordsException {
-        List<Criminal> listOfCriminals = DaoFactory.criminalsDao().allCriminals();
-
-        if (listOfCriminals.isEmpty()) {
-            System.out.println("Because there is no criminals, there is no records!");
-            showEmployee(id);
-            return;
-        }
-
-
-        System.out.println("Chose number for which criminal you want to see records");
-        Scanner chooseScanner = new Scanner(System.in);
-        int number;
-        number = chooseScanner.nextInt();
-
-        System.out.println("List of criminal records");
-        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(listOfCriminals.get(number).getId()).get(number).getCode());
-        System.out.println("If you want to see details about criminal record insert given code");
-        System.out.println("If you want to get back to options insert back");
-        Scanner codeScanner = new Scanner(System.in);
-        String code;
-        code = codeScanner.next();
-        if (code.equals("back")) showEmployee(id);
-        else showCriminalRecordDetails(code, id);
-    }
 
     public static void showCriminalRecordDetails(String code, int id) throws CriminalRecordsException {
         System.out.println(DaoFactory.criminalRecordsDao().getByCode(code).toString());
