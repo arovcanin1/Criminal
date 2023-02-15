@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="574.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="567.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="logoutBtn" layoutX="658.0" layoutY="26.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
 
-      <ImageView fitHeight="56.0" fitWidth="70.0" layoutX="46.0" layoutY="11.0">
+      <ImageView fitHeight="70.0" fitWidth="90.0" layoutX="24.0" layoutY="2.0">
          <Image url="@../img/criminals.jpg" />
       </ImageView>
       <Label layoutX="145.0" layoutY="12.0" prefHeight="50.0" prefWidth="455.0" text="WELCOME TO CRIMINAL RECORDS">
@@ -17,31 +17,40 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="24.0" layoutY="129.0" prefHeight="234.0" prefWidth="225.0" />
+      <ListView fx:id="listView" layoutX="24.0" layoutY="129.0" prefHeight="193.0" prefWidth="192.0" />
       <Label layoutX="102.0" layoutY="107.0" text="All criminals">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="addCriminalBtn" layoutX="27.0" layoutY="371.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal">
+      <Button fx:id="addCriminalBtn" layoutX="23.0" layoutY="336.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Button>
-      <Label layoutX="404.0" layoutY="107.0" text="Details about selected criminal">
+      <Label layoutX="438.0" layoutY="107.0" text="Details about selected criminal">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <ListView fx:id="listViewRecords" layoutX="492.0" layoutY="129.0" prefHeight="234.0" prefWidth="226.0" />
-      <Button fx:id="deleteBtn" layoutX="146.0" layoutY="371.0" mnemonicParsing="false" onAction="#deleteCriminal" text="Delete criminal">
+      <ListView fx:id="listViewRecords" layoutX="526.0" layoutY="129.0" prefHeight="194.0" prefWidth="192.0" />
+      <Button fx:id="deleteBtn" layoutX="145.0" layoutY="336.0" mnemonicParsing="false" onAction="#deleteCriminal" text="Delete criminal">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="addRecordBtn" layoutX="617.0" layoutY="371.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
-      <TextField fx:id="firstNameFld" layoutX="329.0" layoutY="129.0" />
-      <TextField fx:id="lastNameFld" layoutX="330.0" layoutY="164.0" />
-      <TextField fx:id="jmbgFld" layoutX="330.0" layoutY="198.0" />
-      <TextField fx:id="birthDateFld" layoutX="330.0" layoutY="234.0" />
+      <Button fx:id="addRecordBtn" layoutX="413.0" layoutY="297.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
+      <TextField fx:id="firstNameFld" layoutX="364.0" layoutY="129.0" />
+      <TextField fx:id="lastNameFld" layoutX="364.0" layoutY="163.0" />
+      <TextField fx:id="jmbgFld" layoutX="364.0" layoutY="200.0" />
+      <TextField fx:id="birthDateFld" layoutX="364.0" layoutY="235.0" />
+      <Label layoutX="478.0" layoutY="340.0" text="Criminal Record">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="placeRecordFld" layoutX="365.0" layoutY="360.0" />
+      <TextField fx:id="dateRecordFld" layoutX="525.0" layoutY="360.0" />
+      <TextField fx:id="codeRecordFld" layoutX="364.0" layoutY="392.0" />
+      <TextField fx:id="descriptionRecordFld" layoutX="364.0" layoutY="433.0" prefHeight="122.0" prefWidth="359.0" />
    </children>
 </AnchorPane>

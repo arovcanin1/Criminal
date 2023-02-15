@@ -29,9 +29,6 @@ public class CriminalRecordController {
         criminal = new Criminal();
     }
 
-    public void setList(ListView listView) {
-        this.listView = listView;
-    }
 
 
     public void addNewRecord(ActionEvent event) {

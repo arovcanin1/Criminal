@@ -32,6 +32,10 @@ public class EmployeeController {
     public Button logoutBtn;
     public ListView listView;
     public ListView listViewRecords;
+    public TextField placeRecordFld;
+    public TextField descriptionRecordFld;
+    public TextField codeRecordFld;
+    public TextField dateRecordFld;
     Criminal criminal = new Criminal();
     Criminal c = new Criminal();
 
@@ -82,25 +86,19 @@ public class EmployeeController {
                     e.printStackTrace();
                 }
             });
-    }
 
-    public void showRecord(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showRecord.fxml"));
-            loader.setController(new CriminalRecordController(c));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("CR Record");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-            CriminalRecordController criminalRecordController = loader.getController();
-            criminalRecordController.setList(listView);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+            try {
+                placeRecordFld.setText(DaoFactory.criminalRecordsDao().getById(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getId()).getPlace());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
 
     }
+
+
 
     public void showAddCriminals(ActionEvent event) {
         try {

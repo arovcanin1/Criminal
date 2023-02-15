@@ -39,6 +39,27 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         return allCriminalRecords;
     }
 
+    public CriminalRecord getByCode(String code) throws CriminalRecordsException{
+        String query = "SELECT * FROM CriminalRecord WHERE code = ?";
+
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(query);
+            statement.setString(1, code);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                CriminalRecord result = row2object(rs);
+                rs.close();
+                return result;
+            } else {
+                throw new CriminalRecordsException("Criminal record not found!");
+            }
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+
+
+    }
+
 
     @Override
     public CriminalRecord row2object(ResultSet rs) throws CriminalRecordsException {
