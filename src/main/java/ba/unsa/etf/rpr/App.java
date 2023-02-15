@@ -83,6 +83,11 @@ public class App {
 
     public static void showEmployee(int id)  {
         System.out.println("You have following options: ");
-        System.out.println("");
+        System.out.println("Option 1: Show all criminals");
+        System.out.println("Option 2: Show records for criminal");
+        System.out.println("Option 3: Add new Criminal");
+        System.out.println("Option 4: Add new Record");
+        System.out.println("Option 5: Delete Record");
+        System.out.println("Option 6: Logout");
     }
 }
