@@ -1,24 +1,32 @@
 package ba.unsa.etf.rpr.dao;
 
 import ba.unsa.etf.rpr.domain.Criminal;
-import ba.unsa.etf.rpr.domain.Employee;
-import ba.unsa.etf.rpr.domain.Gender;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
+/**
+ * Class that implements all methods from Dao<T> and also methods from CriminalDao
+ * Extends AbstractDao
+ */
 public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements CriminalDao {
 
+    /**
+     * Constructor for table, calls parent class
+     */
     public CriminalDaoSQLImpl() {
         super("Criminal");
     }
 
+    /**
+     * Method that gets criminal based on id
+     * @param id - primary key
+     * @return
+     * @throws CriminalRecordsException
+     */
     @Override
     public Criminal getById(int id) throws CriminalRecordsException {
         String query = "SELECT * FROM Criminal WHERE id = ?";
@@ -38,6 +46,12 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
     }
 
+    /**
+     * Method for getting criminal based on jmbg
+     * @param jmbg
+     * @return
+     * @throws CriminalRecordsException
+     */
     public Criminal getByJMBG(String jmbg) throws CriminalRecordsException {
         String query = "SELECT * FROM Criminal WHERE jmbg = ?";
 
@@ -57,6 +71,13 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
     }
 
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs
+     * @return
+     * @throws CriminalRecordsException if there is no requested data
+     * @throws SQLException in case if there is error with db
+     */
     @Override
     public Criminal row2object(ResultSet rs) throws CriminalRecordsException {
         try {
@@ -73,6 +94,11 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
     }
 
+    /**
+     * Method for mapping Object into Map
+     * @param object
+     * @return
+     */
     @Override
     public Map<String, Object> object2row (Criminal object) {
         Map<String, Object> item = new TreeMap<>();
@@ -86,6 +112,11 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         return item;
     }
 
+    /**
+     * Method for getting all criminals
+     * @return
+     * @throws CriminalRecordsException
+     */
     public List<Criminal> allCriminals() throws CriminalRecordsException {
         String query = "SELECT * FROM Criminal";
         List<Criminal> allCriminalsList = new ArrayList<>();
@@ -103,7 +134,4 @@ public class CriminalDaoSQLImpl extends AbstractDao<Criminal> implements Crimina
         }
         return allCriminalsList;
     }
-
-
-
 }
