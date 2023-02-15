@@ -89,7 +89,10 @@ public class EmployeeController {
 
         listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
             try {
-                placeRecordFld.setText(DaoFactory.criminalRecordsDao().getById(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getId()).getPlace());
+                placeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getPlace());
+                dateRecordFld.setText(valueOf(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDate()));
+                descriptionRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDescription());
+                codeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getCode());
             } catch (Exception e) {
                 e.printStackTrace();
             }
