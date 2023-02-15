@@ -45,10 +45,11 @@ public class App {
                     String repeatUsername;
                     Scanner repeatScaner = new Scanner(System.in);
                     repeatUsername = repeatScaner.next();
+                    if (password.equals(employee.getPassword())) break;
                 }
-
-                showEmployee(employee.getId());
             }
+
+            showEmployee(employee.getId());
         }
 
         if (scanner.next().equals("R")) {
@@ -99,13 +100,18 @@ public class App {
             System.out.println("Choose option: ");
             option = scanner.nextInt();
             // Check if options are in correct range
-            if (option > 1 && option < 4) break;
+            if (option > 1 || option < 6) break;
             else System.out.println("Incorrect option! Enter option again: ");
         }
 
-        switch (option) {
-            case 1: showAllCriminals(id);
+        if (option == 1) {
+            showAllCriminals(id);
         }
+
+        if (option == 2) {
+            showRecordsForCriminal(id);
+        }
+
     }
 
     private static void showAllCriminals(int id) throws CriminalRecordsException {
@@ -118,9 +124,29 @@ public class App {
 
         System.out.println("All criminals");
         for (int i = 0; i < listOfCriminals.size(); i++) {
-            System.out.println(listOfCriminals.get(i).getJmbg());
+            System.out.println(i + " " + listOfCriminals.get(i).getJmbg());
         }
 
         showEmployee(id);
+    }
+
+    private static void showRecordsForCriminal(int id) throws CriminalRecordsException {
+        List<Criminal> listOfCriminals = DaoFactory.criminalsDao().allCriminals();
+
+        if (listOfCriminals.isEmpty()) {
+            System.out.println("Because there is no criminals, there is no records!");
+            showEmployee(id);
+            return;
+        }
+
+
+        System.out.println("Chose number for which criminal you want to see records");
+        Scanner chooseScanner = new Scanner(System.in);
+        int number;
+        number = chooseScanner.nextInt();
+
+        System.out.println("Criminal records\n");
+        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(listOfCriminals.get(number).getId()).toString());
+
     }
 }

@@ -75,7 +75,10 @@ public class EmployeeController {
 
                 try {
                     if (listView.getSelectionModel().getSelectedItem() != null) {
-                        firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
+                        firstNameFld.setText(DaoFactory.criminalsDao().
+                                     getByJMBG(listView.getSelectionModel().
+                                             getSelectedItem().toString()).getFirstName());
+
                         lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());
                         birthDateFld.setText(valueOf(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getBirthDate()));
                         List<CriminalRecord> allRecords = new ArrayList<>();
