@@ -17,13 +17,13 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="24.0" layoutY="107.0" prefHeight="193.0" prefWidth="192.0" />
+      <ListView fx:id="listView" layoutX="24.0" layoutY="107.0" prefHeight="203.0" prefWidth="192.0" />
       <Label layoutX="85.0" layoutY="83.0" text="All criminals">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="addCriminalBtn" layoutX="24.0" layoutY="311.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal">
+      <Button fx:id="addCriminalBtn" layoutX="27.0" layoutY="323.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Button>
@@ -32,13 +32,13 @@
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <ListView fx:id="listViewRecords" layoutX="531.0" layoutY="106.0" prefHeight="194.0" prefWidth="192.0" />
-      <Button fx:id="deleteBtn" layoutX="147.0" layoutY="311.0" mnemonicParsing="false" onAction="#deleteCriminal" text="Delete criminal">
+      <ListView fx:id="listViewRecords" layoutX="531.0" layoutY="106.0" prefHeight="203.0" prefWidth="192.0" />
+      <Button fx:id="deleteBtn" layoutX="420.0" layoutY="284.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="24.0" prefWidth="102.0" text="Delete record">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="addRecordBtn" layoutX="422.0" layoutY="271.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
+      <Button fx:id="addRecordBtn" layoutX="422.0" layoutY="251.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
       <TextField fx:id="firstNameFld" layoutX="373.0" layoutY="107.0" />
       <TextField fx:id="lastNameFld" layoutX="373.0" layoutY="140.0" />
       <TextField fx:id="jmbgFld" layoutX="373.0" layoutY="177.0" />

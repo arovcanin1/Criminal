@@ -94,6 +94,10 @@ public class EmployeeController {
 
         listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
             try {
+                placeRecordFld.setText("");
+                dateRecordFld.setText("");
+                descriptionRecordFld.setText("");
+                codeRecordFld.setText("");
                 if (listViewRecords.getSelectionModel().getSelectedItem() != null) {
                     placeRecordFld.setText(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getPlace());
                     dateRecordFld.setText(valueOf(DaoFactory.criminalRecordsDao().getByCode(listViewRecords.getSelectionModel().getSelectedItem().toString()).getDate()));
@@ -146,7 +150,7 @@ public class EmployeeController {
             stage.close();
     }
 
-    public void deleteCriminal(ActionEvent event) {
+    public void deleteRecord(ActionEvent event) {
 
         int selected = listViewRecords.getSelectionModel().getSelectedIndex();
         if (selected != -1) {
@@ -163,8 +167,6 @@ public class EmployeeController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
 
             listView.refresh();
             listView.getSelectionModel().select(newSelected);
