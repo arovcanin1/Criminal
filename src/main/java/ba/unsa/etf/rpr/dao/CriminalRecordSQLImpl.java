@@ -17,24 +17,27 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         super("CriminalRecord");
     }
 
-    @Override
     public CriminalRecord getById(int id) throws CriminalRecordsException {
+        return null;
+    }
+
+
+    public List<CriminalRecord> getByIdNew(int id) throws CriminalRecordsException {
         String query = "SELECT * FROM CriminalRecord WHERE criminalId = ?";
 
+        List<CriminalRecord> allCriminalRecords = new ArrayList<>();
         try {
             PreparedStatement statement = getConnection().prepareStatement(query);
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 CriminalRecord result = row2object(rs);
-                rs.close();
-                return result;
-            } else {
-                throw  new CriminalRecordsException("Criminal record does not exist!");
+                allCriminalRecords.add(result);
             }
         } catch (SQLException e) {
             throw new CriminalRecordsException(e.getMessage(), e);
         }
+        return allCriminalRecords;
     }
 
 

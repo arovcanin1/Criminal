@@ -58,18 +58,14 @@ public class EmployeeController {
 
     public void initialize() {
         ObservableList criminalItems = FXCollections.observableArrayList();
-        ObservableList allItems = FXCollections.observableArrayList();
-        ObservableList allRecords = FXCollections.observableArrayList();
+
 
 
         try {
             List<Criminal> criminalsList = DaoFactory.criminalsDao().allCriminals();
-            List<CriminalRecord> criminalRecords = DaoFactory.criminalRecordsDao().getAll();
 
             for (int i = 0; i < criminalsList.size(); i++) {
                 criminalItems.add(criminalsList.get(i).getJmbg());
-                allRecords.add(DaoFactory.criminalRecordsDao().getById(criminalsList.get(i).getId()).getCode());
-
             }
             listView.setItems(criminalItems);
 
@@ -79,9 +75,9 @@ public class EmployeeController {
         }
 
             listView.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+                List<CriminalRecord> allRecords= new ArrayList<>();
+                ObservableList allRecordsItems = FXCollections.observableArrayList();
                 jmbgFld.setText(listView.getSelectionModel().getSelectedItem().toString());
-                    listViewRecords.setItems(allRecords);
-
 
                     try {
                         c = DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString());
@@ -94,6 +90,13 @@ public class EmployeeController {
                     firstNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getFirstName());
                     lastNameFld.setText(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getLastName());
                     birthDateFld.setText(valueOf(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getBirthDate()));
+                    List<CriminalRecord>  criminalRecords= DaoFactory.criminalRecordsDao().getAll();
+                    allRecords = (DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().getByJMBG(listView.getSelectionModel().getSelectedItem().toString()).getId()));
+
+                    for (int i = 0; i < allRecords.size(); i++) {
+                        allRecordsItems.add(allRecords.get(i).getCode());
+                    }
+                    listViewRecords.setItems(allRecordsItems);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
