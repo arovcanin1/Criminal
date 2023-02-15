@@ -145,8 +145,12 @@ public class App {
         int number;
         number = chooseScanner.nextInt();
 
-        System.out.println("Criminal records\n");
-        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(listOfCriminals.get(number).getId()).toString());
-
+        System.out.println("List of criminal records");
+        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(listOfCriminals.get(number).getId()).get(number).getCode());
+        System.out.println("If you want do see details about criminal record insert given code");
+        Scanner codeScanner = new Scanner(System.in);
+        String code;
+        code = codeScanner.next();
+        System.out.println(DaoFactory.criminalRecordsDao().getByCode(code).toString());
     }
 }
