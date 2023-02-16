@@ -9,7 +9,6 @@ import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
