@@ -20,7 +20,7 @@ public class EmployeeManagerTest {
     Employee newEmployee = new Employee();
 
     /**
-     * Method for setting employee for testing
+     * Method for setting employees for testing
      */
     @BeforeEach
     public  void setEmployee() {
@@ -36,9 +36,7 @@ public class EmployeeManagerTest {
         newEmployee.setLastName("Rovcanin");
         newEmployee.setUsername("arovcanin1");
         newEmployee.setEmail("arovcanin1@etf.unsa.ba");
-        newEmployee.setPassword("someBadPass");
-
-
+        newEmployee.setPassword("");
     }
 
     /**
@@ -51,6 +49,15 @@ public class EmployeeManagerTest {
         } catch (CriminalRecordsException e) {
             assertEquals("Password is not correct!", e.getMessage());
             e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void exceptionTest1() {
+        try {
+            DaoFactory.employeesDao().add(newEmployee);
+        } catch (CriminalRecordsException e) {
+            assertEquals("Each field must be filled!", e.getMessage());
         }
     }
 
