@@ -164,6 +164,10 @@ public class Employee implements Idable {
         return Objects.hash(id, firstName, lastName, username, email);
    }
 
+    /**
+     * Method for printing values of Employee class attributes
+     * @return
+     */
    @Override
     public String toString() {
         return "First name: " + firstName + "\nLast name: " + lastName + "\nEmail: " + email + "\nUsername: " + username + "\nPassword: " + password;
