@@ -121,7 +121,8 @@ public class App {
         System.out.println("Option 2: Add new Criminal");
         System.out.println("Option 3: Add new Record");
         System.out.println("Option 4: Delete Record");
-        System.out.println("Option 5: Logout");
+        System.out.println("Option 5: Show profile");
+        System.out.println("Option 6: Logout");
 
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -157,6 +158,10 @@ public class App {
         }
 
         if (option == 5) {
+            showProfile(id);
+        }
+
+        if (option == 6) {
             System.exit(0);
         }
     }
@@ -333,6 +338,10 @@ public class App {
         DaoFactory.criminalRecordsDao().delete(DaoFactory.criminalRecordsDao().getByCode(deleteRecord).getId());
         System.out.println("Criminal record sucessfully deleted!");
         showEmployee(id);
+    }
+
+    public static void showProfile(int id) throws CriminalRecordsException {
+        System.out.println(DaoFactory.employeesDao().getById(id).toString());
     }
 
 }
