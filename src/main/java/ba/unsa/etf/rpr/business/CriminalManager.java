@@ -5,7 +5,6 @@ import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.time.LocalDate;
-import java.time.Period;
 
 /**
  * Class that is business layer for Criminal
