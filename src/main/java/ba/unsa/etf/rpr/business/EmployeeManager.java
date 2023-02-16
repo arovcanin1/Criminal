@@ -1,12 +1,23 @@
 package ba.unsa.etf.rpr.business;
 
-import ba.unsa.etf.rpr.dao.Dao;
+
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+/**
+ * Class that is business layer for Employees
+ * Contains methods for checking all actions for login and registration
+ */
 public class EmployeeManager {
 
+    /**
+     * Method that adds Employee if username and password are correct
+     * @param employee
+     * @param confirmPassword
+     * @return
+     * @throws CriminalRecordsException
+     */
     public static Employee add(Employee employee, String confirmPassword) throws CriminalRecordsException {
 
         // Checking if all fields are not null
@@ -49,11 +60,17 @@ public class EmployeeManager {
             if (e.getMessage().contains("username")) {
                 throw new CriminalRecordsException("Employee with same username already exist!");
             }
-
             throw e;
         }
     }
 
+    /**
+     * Method that allows Employee to login only if username and password are correct
+     * @param username
+     * @param password
+     * @return
+     * @throws CriminalRecordsException
+     */
     public Employee loginSearch(String username, String password) throws CriminalRecordsException {
 
         Employee employee = DaoFactory.employeesDao().getByUsername(username);
