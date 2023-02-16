@@ -30,7 +30,9 @@ public class App {
 
         System.out.println("For login type L, For registration type R");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.next().equals("L")) {
+        String value;
+        value = scanner.next();
+        if (value.equals("L")) {
             String username;
             String password;
             System.out.println("Enter username: ");
@@ -50,15 +52,15 @@ public class App {
                 if (employee == null) {
                     System.out.println("Enter username again: ");
                     String repeatUsername;
-                    Scanner repeatScaner = new Scanner(System.in);
-                    repeatUsername = repeatScaner.next();
+                    Scanner repeatScanner = new Scanner(System.in);
+                    repeatUsername = repeatScanner.next();
                 }
 
                 if (!employee.getPassword().equals(password)) {
                     System.out.println("Enter password again: ");
                     String repeatUsername;
-                    Scanner repeatScaner = new Scanner(System.in);
-                    repeatUsername = repeatScaner.next();
+                    Scanner repeatScanner = new Scanner(System.in);
+                    repeatUsername = repeatScanner.next();
                     if (password.equals(employee.getPassword())) break;
                 }
             }
@@ -66,35 +68,45 @@ public class App {
             showEmployee(employee.getId());
         }
 
-        if (scanner.next().equals("R")) {
-            String firstName;
-            String lastName;
-            String username;
-            String email;
-            String password;
-            String confirmPassword;
-            System.out.println("Enter name: ");
-            Scanner enterName = new Scanner(System.in);
-            firstName = enterName.next();
-            System.out.println("Enter surname: ");
-            Scanner enterSurname = new Scanner(System.in);
-            lastName = enterSurname.next();
-            Scanner enterUsername = new Scanner(System.in);
-            username = enterUsername.next();
-            Scanner enterEmail = new Scanner(System.in);
-            email = enterEmail.next();
-            Scanner enterPassword = new Scanner(System.in);
-            password = enterPassword.next();
-            Scanner enterPasswordAgain = new Scanner(System.in);
-            confirmPassword = enterPasswordAgain.next();
+        if (value.equals("R")) {
+            try {
+                String firstName;
+                String lastName;
+                String username;
+                String email;
+                String password;
+                String confirmPassword;
+                System.out.println("Enter name: ");
+                Scanner enterName = new Scanner(System.in);
+                firstName = enterName.next();
+                System.out.println("Enter surname: ");
+                Scanner enterSurname = new Scanner(System.in);
+                lastName = enterSurname.next();
+                System.out.println("Enter username: ");
+                Scanner enterUsername = new Scanner(System.in);
+                username = enterUsername.next();
+                System.out.println("Enter email: ");
+                Scanner enterEmail = new Scanner(System.in);
+                email = enterEmail.next();
+                System.out.println("Enter password: ");
+                Scanner enterPassword = new Scanner(System.in);
+                password = enterPassword.next();
+                System.out.println("Confirm password: ");
+                Scanner enterPasswordAgain = new Scanner(System.in);
+                confirmPassword = enterPasswordAgain.next();
 
-            Employee e = new Employee();
-            e.setFirstName(firstName);
-            e.setLastName(lastName);
-            e.setUsername(username);
-            e.setPassword(password);
-            EmployeeManager.add(e, confirmPassword);
-            showEmployee(e.getId());
+                Employee e = new Employee();
+                e.setFirstName(firstName);
+                e.setLastName(lastName);
+                e.setUsername(username);
+                e.setEmail(email);
+                e.setPassword(password);
+                EmployeeManager.add(e, confirmPassword);
+                System.out.println("Success!");
+                showEmployee(e.getId());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
