@@ -11,7 +11,28 @@ public class CriminalRecordTest {
     CriminalRecord criminalRecord = new CriminalRecord(9, "someDescription", "Stockholm", LocalDate.of(2022,05,23), "someCode", criminal);
 
     @Test
+    public void getPlaceTest() {
+        assertEquals("Stockholm", criminalRecord.getPlace());
+    }
+
+    @Test
+    public void getDescriptionTest() {
+        assertEquals("someDescription", criminalRecord.getDescription());
+    }
+
+    @Test
+    public void getCodeTest() {
+        assertEquals("someCode", criminalRecord.getCode());
+    }
+
+    @Test
+    public void getDateTest() {
+        assertEquals(LocalDate.of(2022, 05,23), criminalRecord.getDate());
+    }
+    @Test
     public void getCriminalTest() {
         assertEquals(criminal, criminalRecord.getCriminal());
     }
+
+
 }
