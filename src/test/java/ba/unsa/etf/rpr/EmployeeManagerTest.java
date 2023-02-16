@@ -17,6 +17,7 @@ public class EmployeeManagerTest {
      * Attributes
      */
     Employee employee = new Employee();
+    Employee newEmployee = new Employee();
 
     /**
      * Method for setting employee for testing
@@ -29,6 +30,15 @@ public class EmployeeManagerTest {
         employee.setUsername("arovcanin1");
         employee.setEmail("arovcanin1@etf.unsa.ba");
         employee.setPassword("someBadPass");
+
+        newEmployee.setId(1);
+        newEmployee.setFirstName("Amila");
+        newEmployee.setLastName("Rovcanin");
+        newEmployee.setUsername("arovcanin1");
+        newEmployee.setEmail("arovcanin1@etf.unsa.ba");
+        newEmployee.setPassword("someBadPass");
+
+
     }
 
     /**
@@ -43,4 +53,6 @@ public class EmployeeManagerTest {
             e.printStackTrace();
         }
     }
+
+
 }
