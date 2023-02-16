@@ -39,4 +39,12 @@ public interface Dao<T> {
      * @throws CriminalRecordsException
      */
     void delete(int id) throws CriminalRecordsException;
+
+    /**
+     * Updates entity in database based on id
+     * @param item - bean to be updated, id must be populated
+     * @return updated version of bean
+     * @throws CriminalRecordsException
+     */
+    T update (T item) throws CriminalRecordsException;
 }
