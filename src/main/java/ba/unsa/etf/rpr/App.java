@@ -288,6 +288,11 @@ public class App {
         showEmployee(id);
     }
 
+    /**
+     * Method that deletes criminal record for selected criminal
+     * @param id
+     * @throws CriminalRecordsException
+     */
     public static void deleteRecord(int id) throws CriminalRecordsException {
         int delete;
         String deleteRecord;
