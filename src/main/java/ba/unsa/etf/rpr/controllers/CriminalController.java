@@ -2,7 +2,6 @@ package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CriminalManager;
 import ba.unsa.etf.rpr.domain.Criminal;
-import ba.unsa.etf.rpr.domain.Gender;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
