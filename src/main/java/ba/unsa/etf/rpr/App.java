@@ -1,6 +1,7 @@
 package ba.unsa.etf.rpr;
 
 import ba.unsa.etf.rpr.business.CriminalManager;
+import ba.unsa.etf.rpr.business.CriminalRecordManager;
 import ba.unsa.etf.rpr.business.EmployeeManager;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
@@ -215,7 +216,7 @@ public class App {
         Scanner jmbgScanner = new Scanner(System.in);
         jmbg = jmbgScanner.next();
 
-        date = birthDate();
+        date = justDate();
 
         Criminal criminal = new Criminal();
         criminal.setFirstName(firstName);
@@ -232,19 +233,50 @@ public class App {
      * Method for entering date of birth, when Emplyoee enters data for new criminal
      * @return
      */
-    public static LocalDate birthDate() {
+    public static LocalDate justDate() {
         Scanner dateScanner = new Scanner(System.in);
-        System.out.println("Enter birth date [dd/MM/yyyy]: ");
+        System.out.println("Enter date [dd/MM/yyyy]: ");
         String help = dateScanner.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return LocalDate.parse(help, formatter);
     }
 
+
     public static void showAddRecord(int id) throws CriminalRecordsException {
+        int add;
+        String place;
+        LocalDate date;
+        String code;
+        String description;
+        CriminalRecord criminalRecord= new CriminalRecord();
+
         showAllCriminals(id);
         System.out.println("Please insert number for criminal you want add record");
         Scanner addScanner = new Scanner(System.in);
-        int add = addScanner.nextInt();
+        add = addScanner.nextInt();
+        criminalRecord.setCriminal(DaoFactory.criminalsDao().allCriminals().get(add));
+
+        System.out.println("Enter place: ");
+        Scanner placeScanner = new Scanner(System.in);
+        place = placeScanner.next();
+        criminalRecord.setPlace(place);
+
+        date = justDate();
+        criminalRecord.setDate(date);
+
+        System.out.println("Enter code: ");
+        Scanner codeScanner = new Scanner(System.in);
+        code = codeScanner.next();
+        criminalRecord.setCode(code);
+
+        System.out.println("Enter description: ");
+        Scanner descriptionScanner = new Scanner(System.in);
+        description = descriptionScanner.next();
+        criminalRecord.setDescription(description);
+
+        CriminalRecordManager.add(criminalRecord);
+        System.out.println("Criminal record successfully added!");
+        showEmployee(id);
     }
 
 }
