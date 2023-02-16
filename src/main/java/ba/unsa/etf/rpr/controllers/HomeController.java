@@ -12,14 +12,22 @@ import java.io.IOException;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for handle home window
+ */
 public class HomeController {
+    /**
+     * Attributes for HomeController
+     */
     public Button registerBtn;
     public Button loginBtn;
-
     public Button aboutBtn;
 
+    /**
+     * Method that shows registration window after button Register is pressed
+     * @param event
+     */
     public void showRegistration(ActionEvent event) {
-
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/registration.fxml"));
             loader.setController(new RegistrationController());
@@ -34,6 +42,10 @@ public class HomeController {
         }
     }
 
+    /**
+     * Method that shows log in window after Login button is pressed
+     * @param event
+     */
     public void showLogin(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
@@ -49,6 +61,10 @@ public class HomeController {
         }
     }
 
+    /**
+     * Method that shows About window after About button is pressed
+     * @param event
+     */
     public void showAbout(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/about.fxml"));
@@ -63,6 +79,4 @@ public class HomeController {
             throw new RuntimeException(e);
         }
     }
-
-
 }
