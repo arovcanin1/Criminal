@@ -31,6 +31,12 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         return null;
     }
 
+    /**
+     * Method for getting list of criminal records based on id
+     * @param id
+     * @return
+     * @throws CriminalRecordsException
+     */
     public List<CriminalRecord> getByIdNew(int id) throws CriminalRecordsException {
         String query = "SELECT * FROM CriminalRecord WHERE criminalId = ?";
 
@@ -49,6 +55,12 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         return allCriminalRecords;
     }
 
+    /**
+     * Method for getting criminal record based on code
+     * @param code
+     * @return
+     * @throws CriminalRecordsException
+     */
     public CriminalRecord getByCode(String code) throws CriminalRecordsException{
         String query = "SELECT * FROM CriminalRecord WHERE code = ?";
 
@@ -69,8 +81,13 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
 
 
     }
-
-
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs
+     * @return a Bean object for specific table
+     * @throws CriminalRecordsException if there is no requested data
+     * @throws SQLException in case if there is error with db
+     */
     @Override
     public CriminalRecord row2object(ResultSet rs) throws CriminalRecordsException {
         CriminalRecord criminalRecord = new CriminalRecord();
@@ -87,6 +104,12 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         }
     }
 
+
+    /**
+     * Method for mapping Object into Map
+     * @param object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     @Override
     public Map<String, Object> object2row(CriminalRecord object) {
         Map<String, Object> item = new TreeMap<String, Object>();
@@ -100,6 +123,12 @@ public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implement
         return item;
     }
 
+    /**
+     * Method for getting all criminal Records based on criminalId
+     * @param criminalId
+     * @return
+     * @throws CriminalRecordsException
+     */
     public List<CriminalRecord> allCriminalRecords (int criminalId) throws CriminalRecordsException {
         List<CriminalRecord> allRecords = new ArrayList<>();
         String query = "SELECT * FROM CriminalRecords WHERE criminalId = ?";
