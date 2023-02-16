@@ -56,7 +56,6 @@ public class ProfileController {
         employee.setUsername(usernameFld.getText());
         employee.setPassword(passwordFld.getText());
 
-        System.out.println("THISS HAPPENS");
         try {
             DaoFactory.employeesDao().update(employee);
         } catch (CriminalRecordsException e) {
@@ -65,17 +64,5 @@ public class ProfileController {
 
         Stage s = (Stage) updateBtn.getScene().getWindow();
         s.close();
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-            loader.setController(new EmployeeController(employee));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("CR Criminals");
-            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }
