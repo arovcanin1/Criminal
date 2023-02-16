@@ -143,6 +143,10 @@ public class App {
         if (option == 4) {
             deleteRecord(id);
         }
+
+        if (option == 5) {
+            System.exit(0);
+        }
     }
 
     /**
