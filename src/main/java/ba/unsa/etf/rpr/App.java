@@ -8,6 +8,7 @@ import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -165,6 +166,25 @@ public class App {
     }
 
     public static void showAddCriminal(int id) throws CriminalRecordsException {
+            String firstName;
+            String lastName;
+            String jmbg;
+            LocalDate date;
+
+        System.out.println("Enter first name: ");
+        Scanner firstNameScanner = new Scanner(System.in);
+        firstName = firstNameScanner.next();
+
+        System.out.println("Enter last name: ");
+        Scanner lastNameScanner = new Scanner(System.in);
+        lastName = lastNameScanner.next();
+
+        System.out.println("Enter JMBG: ");
+        Scanner jmbgScanner = new Scanner(System.in);
+        jmbg = jmbgScanner.next();
+
+        System.out.println("Enter birth date: ");
+        Scanner dateScanner = new Scanner(System.in);
 
     }
 
