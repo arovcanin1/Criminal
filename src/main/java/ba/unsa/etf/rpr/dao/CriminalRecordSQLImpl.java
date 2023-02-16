@@ -1,6 +1,4 @@
 package ba.unsa.etf.rpr.dao;
-
-import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
@@ -12,11 +10,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Implements all methods from Dao<T> and also methods from CriminalRecordDao, extends AbstractDao
+ */
 public class CriminalRecordSQLImpl extends AbstractDao<CriminalRecord> implements CriminalRecordDao {
+    /**
+     * Constructor for specific table
+     */
     public CriminalRecordSQLImpl() {
         super("CriminalRecord");
     }
 
+    /**
+     * Method for getting criminal record by id
+     * @param id - record id
+     * @return
+     * @throws CriminalRecordsException
+     */
     public CriminalRecord getById(int id) throws CriminalRecordsException {
         return null;
     }
