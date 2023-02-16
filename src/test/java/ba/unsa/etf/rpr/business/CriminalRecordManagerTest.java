@@ -10,9 +10,18 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test for CriminalRecordManager class
+ */
 public class CriminalRecordManagerTest {
+    /**
+     * Attribute
+     */
     CriminalRecord criminalRecord = new CriminalRecord();
 
+    /**
+     * Setting criminal record for testing
+     */
     @BeforeEach
     public void setCriminalRecordTest() {
         criminalRecord.setId(12);
@@ -22,6 +31,9 @@ public class CriminalRecordManagerTest {
         criminalRecord.setDate(LocalDate.of(2025, 06,03));
     }
 
+    /**
+     * Test that checks if there is exception when date is not correct
+     */
     @Test
     public void exceptionDateTest() {
         try {
