@@ -51,6 +51,9 @@ public class CriminalManagerTest {
         }
     }
 
+    /**
+     * Test that tests if Birth date is after current yead
+     */
     @Test
     public void exceptionTest1() {
         try {
