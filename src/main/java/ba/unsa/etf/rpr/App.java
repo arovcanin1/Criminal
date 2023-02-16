@@ -122,7 +122,8 @@ public class App {
         System.out.println("Option 3: Add new Record");
         System.out.println("Option 4: Delete Record");
         System.out.println("Option 5: Show profile");
-        System.out.println("Option 6: Logout");
+        System.out.println("Option 6: Show about");
+        System.out.println("Option 7: Logout");
 
         Scanner scanner = new Scanner(System.in);
         int option;
@@ -162,6 +163,10 @@ public class App {
         }
 
         if (option == 6) {
+            showAbout(id);
+        }
+
+        if (option == 7) {
             System.exit(0);
         }
     }
@@ -351,7 +356,10 @@ public class App {
     }
 
     public static void showAbout (int id) throws CriminalRecordsException {
-
+        System.out.println("This is a smaller criminal records application that has the ability to add, delete etc. criminals and their records.");
+        System.out.println("\nContact: " + "Amila Rovčanin");
+        System.out.println("\nhttps://github.com/arovcanin1/CriminalRecords");
+        showEmployee(id);
     }
 
 }
