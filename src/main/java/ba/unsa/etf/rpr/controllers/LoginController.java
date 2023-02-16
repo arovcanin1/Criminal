@@ -1,7 +1,6 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.EmployeeManager;
-import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Employee;
 import javafx.event.ActionEvent;
@@ -17,13 +16,22 @@ import javafx.stage.Stage;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for handle log in window
+ */
 public class LoginController {
 
+    /**
+     * Attributes for LoginController
+     */
     public Button loginBtnClick;
     public TextField inputUsernameFld;
     public PasswordField inputPasswordFld;
 
-
+    /**
+     * This is method for showing Employee window after employee log in
+     * @param event
+     */
     public void showEmployeeWindow(ActionEvent event) {
 
         try {
