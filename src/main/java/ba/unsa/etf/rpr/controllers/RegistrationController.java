@@ -14,8 +14,14 @@ import javafx.stage.Stage;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for handle registration window
+ */
 public class RegistrationController {
 
+    /**
+     * Attributes for RegistrationController
+     */
     public TextField firstNameFld;
     public TextField lastNameFld;
     public TextField emailFld;
@@ -26,6 +32,11 @@ public class RegistrationController {
 
     private EmployeeManager employeeManager = new EmployeeManager();
 
+    /**
+     * This is method for adding Employee in database when Employee makes registration
+     * Also this method switch window to log in after employee presses button for registration
+     * @param event
+     */
     public void registration(ActionEvent event) {
         try {
             Employee employee = new Employee();
