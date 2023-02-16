@@ -138,6 +138,10 @@ public class App {
         if (option == 3) {
             showAddRecord(id);
         }
+
+        if (option == 4) {
+            deleteRecord(id);
+        }
     }
 
     /**
@@ -281,6 +285,11 @@ public class App {
         CriminalRecordManager.add(criminalRecord);
         System.out.println("Criminal record successfully added!");
         showEmployee(id);
+    }
+
+    public static void deleteRecord(int id) throws CriminalRecordsException {
+
+
     }
 
 }
