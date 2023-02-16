@@ -9,6 +9,7 @@ import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -288,8 +289,29 @@ public class App {
     }
 
     public static void deleteRecord(int id) throws CriminalRecordsException {
+        int delete;
+        String deleteRecord;
 
+        showAllCriminals(id);
+        System.out.println("Please enter number for criminal you want delete record!");
+        Scanner deleteScanner = new Scanner(System.in);
+        delete = deleteScanner.nextInt();
+        System.out.println(DaoFactory.criminalsDao().allCriminals().get(delete).toString());
 
+        List<CriminalRecord> criminalRecords = DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().allCriminals().get(delete).getId());
+
+        System.out.println("Criminal records");
+        for (int i = 0; i < criminalRecords.size(); i++) {
+            System.out.println("Code: " + criminalRecords.get(i).getCode());
+        }
+
+        System.out.println("Please enter code for record you want delete!");
+        Scanner deleteRecordScanner = new Scanner(System.in);
+        deleteRecord = deleteRecordScanner.next();
+
+        DaoFactory.criminalRecordsDao().delete(DaoFactory.criminalRecordsDao().getByCode(deleteRecord).getId());
+        System.out.println("Criminal record sucessfully deleted!");
+        showEmployee(id);
     }
 
 }
