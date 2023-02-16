@@ -340,8 +340,14 @@ public class App {
         showEmployee(id);
     }
 
+    /**
+     * Method for listing all data for employee
+     * @param id
+     * @throws CriminalRecordsException
+     */
     public static void showProfile(int id) throws CriminalRecordsException {
         System.out.println(DaoFactory.employeesDao().getById(id).toString());
+        showEmployee(id);
     }
 
 }
