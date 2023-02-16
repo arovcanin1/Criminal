@@ -35,7 +35,6 @@ public class ProfileController {
      * This method fills data for employee profile
      */
     public void initialize() {
-
         if (employee != null) {
             welcomeLabel.setText("Welcome, " + employee.getFirstName());
             firstNameFld.setText(employee.getFirstName());
