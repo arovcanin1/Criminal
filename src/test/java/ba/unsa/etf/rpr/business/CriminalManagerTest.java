@@ -10,9 +10,10 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CriminalManager {
+public class CriminalManagerTest {
 
     Criminal criminal = new Criminal();
+    Criminal newCriminal = new Criminal();
 
     @BeforeEach
     public void setCriminalTest() {
