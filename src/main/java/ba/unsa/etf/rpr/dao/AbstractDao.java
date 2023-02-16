@@ -196,4 +196,31 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
             throw new CriminalRecordsException(e.getMessage(), e);
         }
     }
+
+    public T update(T item) throws CriminalRecordsException {
+        Map<String, Object> row = object2row(item);
+        String updateColumns = prepareUpdateParts(row);
+        StringBuilder builder = new StringBuilder();
+        builder.append("UPDATE ")
+                .append(tableName)
+                .append(" SET ")
+                .append(updateColumns)
+                .append(" WHERE id = ?");
+
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(builder.toString());
+            int counter = 1;
+            for (Map.Entry<String, Object> entry: row.entrySet()) {
+                if (entry.getKey().equals("id")) continue; // skip ID
+                statement.setObject(counter, entry.getValue());
+                counter++;
+            }
+
+            statement.setObject(counter, item.getId());
+            statement.executeUpdate();
+            return item;
+        } catch (SQLException e) {
+            throw new CriminalRecordsException(e.getMessage(), e);
+        }
+    }
 }
