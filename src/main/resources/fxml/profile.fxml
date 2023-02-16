@@ -5,42 +5,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="293.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="profileBtn" fitHeight="84.0" fitWidth="101.0" layoutX="389.0" layoutY="13.0">
+      <ImageView fx:id="profileBtn" fitHeight="72.0" fitWidth="73.0" layoutX="396.0" layoutY="14.0">
          <Image url="@../img/employee.jpg" />
       </ImageView>
-      <TextField fx:id="firstNameFld" layoutX="21.0" layoutY="72.0" />
-      <Label fx:id="welcomeLabel" layoutX="227.0" layoutY="14.0">
+      <TextField fx:id="firstNameFld" layoutX="24.0" layoutY="50.0" />
+      <Label fx:id="welcomeLabel" layoutX="192.0" layoutY="14.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="lastNameFld" layoutX="219.0" layoutY="72.0" />
-      <TextField fx:id="usernameFld" layoutX="20.0" layoutY="127.0" />
-      <TextField fx:id="emailFld" layoutX="21.0" layoutY="181.0" />
-      <PasswordField fx:id="passwordFld" layoutX="21.0" layoutY="237.0" />
-      <Label layoutX="68.0" layoutY="55.0" text="First name">
+      <TextField fx:id="lastNameFld" layoutX="24.0" layoutY="105.0" />
+      <TextField fx:id="usernameFld" layoutX="24.0" layoutY="163.0" />
+      <TextField fx:id="emailFld" layoutX="23.0" layoutY="221.0" />
+      <PasswordField fx:id="passwordFld" layoutX="212.0" layoutY="221.0" />
+      <Label layoutX="68.0" layoutY="28.0" text="First name">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="270.0" layoutY="55.0" text="Last name">
+      <Label layoutX="68.0" layoutY="90.0" text="Last name">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="111.0" text="Email">
+      <Label layoutX="82.0" layoutY="147.0" text="Email">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="65.0" layoutY="165.0" text="Username">
+      <Label layoutX="69.0" layoutY="205.0" text="Username">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="221.0" text="Password">
+      <Label layoutX="258.0" layoutY="205.0" text="Password">
          <font>
             <Font name="Arial" size="13.0" />
          </font>
