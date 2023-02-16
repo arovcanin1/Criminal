@@ -10,11 +10,19 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Test for CriminalManager class
+ */
 public class CriminalManagerTest {
-
+    /**
+     * Attributes
+     */
     Criminal criminal = new Criminal();
     Criminal newCriminal = new Criminal();
 
+    /**
+     * Method that sets criminals to testing
+     */
     @BeforeEach
     public void setCriminalTest() {
         criminal.setId(1);
@@ -24,6 +32,9 @@ public class CriminalManagerTest {
         criminal.setBirthDate(LocalDate.of(1996,05,27));
     }
 
+    /**
+     * Method that tests if there is exception when some fields are null
+     */
     @Test
     public void exceptionTest() {
         try {
