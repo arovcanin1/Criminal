@@ -241,7 +241,11 @@ public class App {
         return LocalDate.parse(help, formatter);
     }
 
-
+    /**
+     * Method that for selected criminal adds new record
+     * @param id
+     * @throws CriminalRecordsException
+     */
     public static void showAddRecord(int id) throws CriminalRecordsException {
         int add;
         String place;
