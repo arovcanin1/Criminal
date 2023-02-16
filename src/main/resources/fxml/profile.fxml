@@ -45,6 +45,5 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="updateBtn" layoutX="376.0" layoutY="247.0" mnemonicParsing="false" onAction="#updateEmployee" text="Update profile" />
    </children>
 </AnchorPane>

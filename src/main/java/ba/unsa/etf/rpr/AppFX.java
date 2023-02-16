@@ -18,13 +18,12 @@ public class AppFX extends Application {
         System.out.println( "Hello World!" );
         launch(args);
     }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
-        primaryStage.setTitle("Criminal Records");
-        primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
-        primaryStage.setResizable(false);
-        primaryStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/home.fxml"));
+            primaryStage.setTitle("Criminal Records");
+            primaryStage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            primaryStage.setResizable(false);
+            primaryStage.show();
     }
 }

@@ -34,7 +34,6 @@ public class ProfileController {
         this.employee = employee;
     }
 
-
     public void initialize() {
 
         if (employee != null) {
@@ -45,24 +44,5 @@ public class ProfileController {
             usernameFld.setText(employee.getUsername());
             passwordFld.setText(employee.getPassword());
         }
-
-    }
-
-    public void updateEmployee(ActionEvent event) {
-        employee.setFirstName(firstNameFld.getText());
-        employee.setLastName(lastNameFld.getText());
-        employee.setEmail(emailFld.getText());
-        employee.setEmail(emailFld.getText());
-        employee.setUsername(usernameFld.getText());
-        employee.setPassword(passwordFld.getText());
-
-        try {
-            DaoFactory.employeesDao().update(employee);
-        } catch (CriminalRecordsException e) {
-            e.printStackTrace();
-        }
-
-        Stage s = (Stage) updateBtn.getScene().getWindow();
-        s.close();
     }
 }
