@@ -355,6 +355,11 @@ public class App {
         showEmployee(id);
     }
 
+    /**
+     * Method for showing information about app
+     * @param id
+     * @throws CriminalRecordsException
+     */
     public static void showAbout (int id) throws CriminalRecordsException {
         System.out.println("This is a smaller criminal records application that has the ability to add, delete etc. criminals and their records.");
         System.out.println("\nContact: " + "Amila Rovčanin");
