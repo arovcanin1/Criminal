@@ -10,12 +10,24 @@ import java.sql.SQLException;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * This class implements all methods from Dao<T> and also methods from EmployeeDao, extends AbstractDao
+ */
 public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements EmployeeDao {
 
+    /**
+     * Constructor for table
+     */
     public EmployeeDaoSQLImpl() {
         super("Employee");
     }
 
+    /**
+     * Method for getting Employee based on id
+     * @param id
+     * @return
+     * @throws CriminalRecordsException
+     */
     @Override
     public Employee getById(int id) throws CriminalRecordsException {
        String query = "SELECT * FROM Employee WHERE id = ?";
@@ -72,11 +84,7 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
-    /**
-     *
-     * @param object
-     * @return
-     */
+
     @Override
     public Map<String, Object> object2row(Employee object) {
         Map<String, Object> item = new TreeMap<String, Object>();
