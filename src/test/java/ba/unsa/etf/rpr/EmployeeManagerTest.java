@@ -31,6 +31,9 @@ public class EmployeeManagerTest {
         employee.setPassword("someBadPass");
     }
 
+    /**
+     * Test for incorrect password
+     */
     @Test
     public void exceptionTest() {
         try {
