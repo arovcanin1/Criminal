@@ -52,6 +52,9 @@ public class EmployeeManagerTest {
         }
     }
 
+    /**
+     * Test for missing password when logging in exception
+     */
     @Test
     public void exceptionTest1() {
         try {
