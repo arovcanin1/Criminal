@@ -350,4 +350,8 @@ public class App {
         showEmployee(id);
     }
 
+    public static void showAbout (int id) throws CriminalRecordsException {
+
+    }
+
 }
