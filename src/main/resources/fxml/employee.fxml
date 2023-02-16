@@ -7,12 +7,15 @@
 
 <AnchorPane prefHeight="567.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="logoutBtn" layoutX="663.0" layoutY="24.0" mnemonicParsing="false" onAction="#showLogout" text="Logout" />
+      <Button fx:id="logoutBtn" layoutX="673.0" layoutY="24.0" mnemonicParsing="false" onAction="#showLogout" text="Logout">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
 
       <ImageView fitHeight="182.0" fitWidth="192.0" layoutX="24.0" layoutY="373.0">
          <Image url="@../img/criminals.jpg" />
       </ImageView>
-      <Label layoutX="160.0" layoutY="11.0" prefHeight="50.0" prefWidth="425.0" text="WELCOME TO CRIMINAL RECORDS">
+      <Label layoutX="27.0" layoutY="11.0" prefHeight="50.0" prefWidth="425.0" text="WELCOME TO CRIMINAL RECORDS">
          <font>
             <Font name="Arial Bold" size="24.0" />
          </font>
@@ -52,5 +55,10 @@
       <TextField fx:id="dateRecordFld" layoutX="523.0" layoutY="360.0" />
       <TextField fx:id="codeRecordFld" layoutX="368.0" layoutY="393.0" />
       <TextField fx:id="descriptionRecordFld" alignment="TOP_LEFT" layoutX="368.0" layoutY="430.0" prefHeight="122.0" prefWidth="359.0" />
+      <Button fx:id="profileId" layoutX="610.0" layoutY="24.0" mnemonicParsing="false" onAction="#showProfile" text="Profile">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -11,7 +11,7 @@
          <Image url="@../img/employee.jpg" />
       </ImageView>
       <TextField fx:id="firstNameFld" layoutX="21.0" layoutY="72.0" />
-      <Label layoutX="227.0" layoutY="14.0" text="SOME">
+      <Label fx:id="welcomeLabel" layoutX="227.0" layoutY="14.0">
          <font>
             <Font name="Arial Bold" size="18.0" />
          </font>

@@ -13,6 +13,7 @@ import javafx.scene.AccessibleRole;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class EmployeeController {
     public TextField descriptionRecordFld;
     public TextField codeRecordFld;
     public TextField dateRecordFld;
+    public Label welcomeLabel;
     Criminal criminal = new Criminal();
     Criminal c = new Criminal();
 
@@ -151,6 +153,23 @@ public class EmployeeController {
     public void showLogout(ActionEvent event) {
             Stage stage = (Stage) logoutBtn.getScene().getWindow();
             stage.close();
+    }
+
+    public void showProfile(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/profile.fxml"));
+            loader.setController(new ProfileController(employee));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("CR Criminals");
+            stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void deleteRecord(ActionEvent event) {
