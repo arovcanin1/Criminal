@@ -9,6 +9,7 @@ import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -186,6 +187,14 @@ public class App {
         System.out.println("Enter birth date: ");
         Scanner dateScanner = new Scanner(System.in);
 
+    }
+
+    public static LocalDate birthDate() {
+        Scanner dateScanner = new Scanner(System.in);
+        System.out.println("Enter birth date [dd/MM/yyyy]: ");
+        String help = dateScanner.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return LocalDate.parse(help, formatter);
     }
 
 }
