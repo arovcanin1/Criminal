@@ -197,6 +197,12 @@ public abstract class AbstractDao<T extends Idable> implements Dao<T> {
         }
     }
 
+    /**
+     * Method that updates data
+     * @param item - bean to be updated, id must be populated
+     * @return
+     * @throws CriminalRecordsException
+     */
     public T update(T item) throws CriminalRecordsException {
         Map<String, Object> row = object2row(item);
         String updateColumns = prepareUpdateParts(row);
