@@ -11,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -21,8 +20,14 @@ import javafx.scene.control.ListView;
 import static java.lang.String.valueOf;
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for handle employee window
+ */
 public class EmployeeController {
 
+    /**
+     * Attributes for EmployeeController
+     */
     private Employee employee;
     public TextField firstNameFld;
     public TextField lastNameFld;
@@ -37,14 +42,25 @@ public class EmployeeController {
     public TextField dateRecordFld;
     Criminal c = new Criminal();
 
+    /**
+     * Constructor for EmployeeController without parameter
+     */
     public EmployeeController() {
         employee = new Employee();
     }
 
+    /**
+     * Constructor for EmployeeController with one parameter
+     * @param employee
+     */
     public EmployeeController(Employee employee) {
         this.employee = employee;
     }
 
+    /**
+     * Initialize method that is called as soon as window is opened
+     * This method contains listeners for list of criminals and records
+     */
     public void initialize() {
         try {
             ObservableList criminalItems = FXCollections.observableArrayList();
@@ -161,6 +177,10 @@ public class EmployeeController {
         });
     }
 
+    /**
+     * Method that opens window for adding new criminal
+     * @param event
+     */
     public void showAddCriminals(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
@@ -179,6 +199,10 @@ public class EmployeeController {
         }
     }
 
+    /**
+     * Method that opens window for adding new record
+     * @param event
+     */
     public void showAddRecord(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addRecord.fxml"));
@@ -194,11 +218,10 @@ public class EmployeeController {
         }
     }
 
-    public void showLogout(ActionEvent event) {
-            Stage stage = (Stage) logoutBtn.getScene().getWindow();
-            stage.close();
-    }
-
+    /**
+     * Method that open window for employee profile
+     * @param event
+     */
     public void showProfile(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/profile.fxml"));
@@ -214,6 +237,11 @@ public class EmployeeController {
         }
     }
 
+    /**
+     * Method that deletes record from list and also moves record from db
+     * Also this method refreshes the list
+     * @param event
+     */
     public void deleteRecord(ActionEvent event) {
         int selected = listViewRecords.getSelectionModel().getSelectedIndex();
         if (selected != -1) {
@@ -240,5 +268,14 @@ public class EmployeeController {
             listView.refresh();
             listView.getSelectionModel().select(newSelected);
         }
+    }
+
+    /**
+     * Method for logout
+     * @param event
+     */
+    public void showLogout(ActionEvent event) {
+            Stage stage = (Stage) logoutBtn.getScene().getWindow();
+            stage.close();
     }
 }
