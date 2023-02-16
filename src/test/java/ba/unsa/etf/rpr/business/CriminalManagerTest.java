@@ -30,6 +30,12 @@ public class CriminalManagerTest {
         criminal.setLastName("");
         criminal.setJmbg("2705996175015");
         criminal.setBirthDate(LocalDate.of(1996,05,27));
+
+        criminal.setId(1);
+        criminal.setFirstName("Criminal");
+        criminal.setLastName("Criminal");
+        criminal.setJmbg("2705996175015");
+        criminal.setBirthDate(LocalDate.of(2025,05,27));
     }
 
     /**
