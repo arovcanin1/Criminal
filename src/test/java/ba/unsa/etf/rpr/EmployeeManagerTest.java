@@ -13,8 +13,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Test for EmployeeManager class
  */
 public class EmployeeManagerTest {
+    /**
+     * Attributes
+     */
     Employee employee = new Employee();
 
+    /**
+     * Method for setting employee for testing
+     */
     @BeforeEach
     public  void setEmployee() {
         employee.setId(1);
