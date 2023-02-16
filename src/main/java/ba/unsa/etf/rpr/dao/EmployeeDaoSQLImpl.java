@@ -47,6 +47,12 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
        }
     }
 
+    /**
+     * Method for getting Employee by username
+     * @param username
+     * @return
+     * @throws CriminalRecordsException
+     */
     @Override
     public Employee getByUsername(String username) throws CriminalRecordsException {
         String query = "SELECT * FROM Employee WHERE username = ?";
@@ -67,6 +73,13 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
+    /**
+     * Method for mapping ResultSet into Object
+     * @param rs
+     * @return a Bean object for specific table
+     * @throws CriminalRecordsException if there is no requested data
+     * @throws SQLException in case if there is error with db
+     */
     @Override
     public Employee row2object(ResultSet rs) throws CriminalRecordsException, SQLException {
 
@@ -84,7 +97,11 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         }
     }
 
-
+    /**
+     * Method for mapping Object into Map
+     * @param object - a bean object for specific table
+     * @return key, value sorted map of object
+     */
     @Override
     public Map<String, Object> object2row(Employee object) {
         Map<String, Object> item = new TreeMap<String, Object>();
@@ -96,6 +113,4 @@ public class EmployeeDaoSQLImpl extends AbstractDao<Employee> implements Employe
         item.put("password", object.getPassword());
         return item;
     }
-
-
 }
