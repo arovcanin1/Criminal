@@ -11,23 +11,33 @@ import javafx.stage.Stage;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
 
+/**
+ * Controller for handle adding new criminal
+ */
 public class CriminalController {
-
+    /**
+     * Attributes for CriminalController
+     */
     public TextField firstNameFld;
     public TextField lastNameFld;
     public TextField jmbgFld;
     public DatePicker birthDatePicker;
-    public CheckBox genderMaleCheck;
     public Button confirmBtn;
     private CriminalManager criminalManager = new CriminalManager();
-
     public ListView listView;
 
+    /**
+     * Method for setting listView
+     * @param listView
+     */
     public void setList (ListView listView) {
         this.listView = listView;
     }
 
-
+    /**
+     * Method for adding new criminal
+     * @param event
+     */
     public void addCriminal(ActionEvent event) {
         try {
             Criminal criminal = new Criminal();
@@ -35,8 +45,7 @@ public class CriminalController {
             criminal.setLastName(lastNameFld.getText());
             criminal.setJmbg(jmbgFld.getText());
             criminal.setBirthDate(birthDatePicker.getValue());
-            //if (genderMaleCheck.isSelected()) criminal.setGender(Gender.MALE);
-            //else criminal.setGender(Gender.FEMALE);
+
             Stage stage1 = (Stage) confirmBtn.getScene().getWindow();
             stage1.close();
 
