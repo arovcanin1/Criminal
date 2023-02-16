@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr;
 
+import ba.unsa.etf.rpr.business.CriminalManager;
 import ba.unsa.etf.rpr.business.EmployeeManager;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
@@ -184,8 +185,17 @@ public class App {
         Scanner jmbgScanner = new Scanner(System.in);
         jmbg = jmbgScanner.next();
 
-        System.out.println("Enter birth date: ");
-        Scanner dateScanner = new Scanner(System.in);
+        date = birthDate();
+
+        Criminal criminal = new Criminal();
+        criminal.setFirstName(firstName);
+        criminal.setLastName(lastName);
+        criminal.setJmbg(jmbg);
+        criminal.setBirthDate(date);
+
+        CriminalManager.add(criminal);
+        System.out.println("Criminal successfully added!");
+        showEmployee(id);
 
     }
 
