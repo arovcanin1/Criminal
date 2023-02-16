@@ -22,9 +22,9 @@ public class CriminalRecordManager {
      * @throws CriminalRecordsException
      */
     public static Criminal add(CriminalRecord record) throws CriminalRecordsException {
-        /*if (record.getDate().isAfter(LocalDate.now())) {
+        if (record.getDate().isAfter(LocalDate.now())) {
             throw new CriminalRecordsException("Date is not correct");
-        }*/
+        }
 
         try {
             return DaoFactory.criminalRecordsDao().add(record).getCriminal();

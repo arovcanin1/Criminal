@@ -1,23 +1,19 @@
 package ba.unsa.etf.rpr.controllers;
 
-import ba.unsa.etf.rpr.dao.DaoFactory;
+
 import ba.unsa.etf.rpr.domain.Employee;
-import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
-import java.io.IOException;
-
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-
+/**
+ * Controller for handle profile window
+ */
 public class ProfileController {
+    /**
+     * Attributes for ProfileController
+     */
     Employee employee = new Employee();
     public Label welcomeLabel;
     public TextField firstNameFld;
@@ -34,6 +30,10 @@ public class ProfileController {
         this.employee = employee;
     }
 
+    /**
+     * Initialize method that is called as soon as window is opened
+     * This method fills data for employee profile
+     */
     public void initialize() {
 
         if (employee != null) {
