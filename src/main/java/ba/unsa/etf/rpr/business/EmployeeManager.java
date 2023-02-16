@@ -78,9 +78,9 @@ public class EmployeeManager {
             throw new CriminalRecordsException("Each field must be filled!");
         }
 
-        /*if (employee.getPassword() != password) {
+        if (!employee.getPassword().equals(password)) {
             throw new CriminalRecordsException("Password is not correct!");
-        }*/
+        }
 
         return employee;
     }
