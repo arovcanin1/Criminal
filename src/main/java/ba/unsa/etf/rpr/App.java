@@ -4,6 +4,7 @@ import ba.unsa.etf.rpr.business.EmployeeManager;
 import ba.unsa.etf.rpr.dao.Dao;
 import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
+import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.domain.Employee;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
 
@@ -89,8 +90,7 @@ public class App {
     public static void showEmployee(int id) throws CriminalRecordsException  {
         System.out.println("You have following options: ");
         System.out.println("Option 1: Show details about criminal");
-        System.out.println("Option 3: Show records for criminal");
-        System.out.println("Option 4: Add new Criminal");
+        System.out.println("Option 2: Add new Criminal");
         System.out.println("Option 5: Add new Record");
         System.out.println("Option 6: Delete Record");
         System.out.println("Option 7: Logout");
@@ -113,8 +113,12 @@ public class App {
 
         }
 
-        if (option == 2) {
+        if (option == 1) {
             showDetailsForCriminal(id);
+        }
+
+        if (option == 2) {
+            showAddCriminal(id);
         }
     }
     private static void showAllCriminals(int id) throws CriminalRecordsException {
@@ -136,13 +140,32 @@ public class App {
         int number = choseNumber.nextInt();
         System.out.println(DaoFactory.criminalsDao().allCriminals().get(number).toString());
         System.out.println("Criminal records");
-        System.out.println(DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().allCriminals().get(number).getId()));
-        showEmployee(id);
+
+        List<CriminalRecord> criminalRecords = DaoFactory.criminalRecordsDao().getByIdNew(DaoFactory.criminalsDao().allCriminals().get(number).getId());
+
+        for (int i = 0; i < criminalRecords.size(); i++) {
+            System.out.println("Code: " + criminalRecords.get(i).getCode());
+        }
+
+        System.out.println("Do you want to see details about specific criminal record? Y(YES)/N(NO)?");
+        String confirm;
+        Scanner confirmScanner = new Scanner(System.in);
+        confirm = confirmScanner.next();
+
+        if (confirm.equals("YES")) {
+            String code;
+            Scanner insertCode = new Scanner(System.in);
+            System.out.println("Please insert code for specific criminal record!");
+            code = insertCode.next();
+            System.out.println(DaoFactory.criminalRecordsDao().getByCode(code).toString());
+            showEmployee(id);
+        }
+
+        if (confirm.equals("NO")) showEmployee(id);
     }
 
+    public static void showAddCriminal(int id) throws CriminalRecordsException {
 
-    public static void showCriminalRecordDetails(String code, int id) throws CriminalRecordsException {
-        System.out.println(DaoFactory.criminalRecordsDao().getByCode(code).toString());
-        showEmployee(id);
     }
+
 }
