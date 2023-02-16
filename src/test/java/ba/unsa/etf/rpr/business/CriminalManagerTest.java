@@ -50,4 +50,14 @@ public class CriminalManagerTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void exceptionTest1() {
+        try {
+            DaoFactory.criminalsDao().add(newCriminal);
+        } catch (CriminalRecordsException e) {
+            assertEquals("Birth date is not correct", e.getMessage());
+            e.printStackTrace();
+        }
+    }
 }
