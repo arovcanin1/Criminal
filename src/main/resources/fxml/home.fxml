@@ -19,6 +19,5 @@
        <ImageView fx:id="profileBtn" fitHeight="409.0" fitWidth="680.0" layoutY="29.0">
            <Image url="@../img/cr.jpg" />
        </ImageView>
-      <Button layoutX="493.0" layoutY="1.0" mnemonicParsing="false" text="Profile" />
    </children>
 </AnchorPane>
