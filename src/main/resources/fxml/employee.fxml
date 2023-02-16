@@ -41,7 +41,10 @@
             <Font name="Arial" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="addRecordBtn" layoutX="422.0" layoutY="251.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" />
+      <Button fx:id="addRecordBtn" layoutX="417.0" layoutY="253.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
       <TextField fx:id="firstNameFld" layoutX="373.0" layoutY="107.0" />
       <TextField fx:id="lastNameFld" layoutX="373.0" layoutY="140.0" />
       <TextField fx:id="jmbgFld" layoutX="373.0" layoutY="177.0" />

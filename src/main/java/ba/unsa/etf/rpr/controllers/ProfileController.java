@@ -28,30 +28,47 @@ public class ProfileController {
     public PasswordField passwordFld;
 
     public Button updateBtn;
-
+    public ProfileController() {
+        employee = new Employee();
+    }
     public ProfileController(Employee employee) {
         this.employee = employee;
     }
 
 
     public void initialize() {
-        welcomeLabel.setText("Welcome, " + employee.getFirstName());
-        firstNameFld.setText(employee.getFirstName());
-        lastNameFld.setText(employee.getLastName());
-        emailFld.setText(employee.getEmail());
-        usernameFld.setText(employee.getUsername());
-        passwordFld.setText(employee.getPassword());
 
+        if (employee != null) {
+            welcomeLabel.setText("Welcome, " + employee.getFirstName());
+            firstNameFld.setText(employee.getFirstName());
+            lastNameFld.setText(employee.getLastName());
+            emailFld.setText(employee.getEmail());
+            usernameFld.setText(employee.getUsername());
+            passwordFld.setText(employee.getPassword());
+        }
+
+    }
+
+    public void updateEmployee(ActionEvent event) {
+        employee.setFirstName(firstNameFld.getText());
+        employee.setLastName(lastNameFld.getText());
+        employee.setEmail(emailFld.getText());
+        employee.setEmail(emailFld.getText());
+        employee.setUsername(usernameFld.getText());
+        employee.setPassword(passwordFld.getText());
+
+        System.out.println("THISS HAPPENS");
         try {
             DaoFactory.employeesDao().update(employee);
         } catch (CriminalRecordsException e) {
             e.printStackTrace();
         }
 
-
+        Stage s = (Stage) updateBtn.getScene().getWindow();
+        s.close();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
-            loader.setController(new LoginController());
+            loader.setController(new EmployeeController(employee));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("CR Criminals");
@@ -59,16 +76,7 @@ public class ProfileController {
             stage.setResizable(false);
             stage.show();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-    }
-
-    public void update(ActionEvent event) {
-        employee.setFirstName(firstNameFld.getText());
-        employee.setLastName(lastNameFld.getText());
-        employee.setEmail(emailFld.getText());
-        employee.setEmail(emailFld.getText());
-        employee.setUsername(usernameFld.getText());
-        employee.setPassword(passwordFld.getText());
     }
 }
