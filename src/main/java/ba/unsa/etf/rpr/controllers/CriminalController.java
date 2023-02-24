@@ -1,7 +1,10 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CriminalManager;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
+import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -46,18 +49,26 @@ public class CriminalController {
             criminal.setJmbg(jmbgFld.getText());
             criminal.setBirthDate(birthDatePicker.getValue());
 
-            Stage stage1 = (Stage) confirmBtn.getScene().getWindow();
-            stage1.close();
 
             criminalManager.add(criminal);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/addCriminal.fxml"));
             loader.setController(new CriminalController());
+            Stage stage1 = (Stage) confirmBtn.getScene().getWindow();
+            stage1.close();
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
-            listView.refresh();
+            stage.setOnHiding(e -> {
+                try {
+                    if(listView != null) {
+                        listView.setItems(FXCollections.observableArrayList(DaoFactory.criminalsDao().getAll()));
+                    }
+                } catch (CriminalRecordsException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
