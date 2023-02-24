@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="567.0" prefWidth="745.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="567.0" prefWidth="745.0" styleClass="aPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="logoutBtn" layoutX="673.0" layoutY="24.0" mnemonicParsing="false" onAction="#showLogout" text="Logout">
          <font>

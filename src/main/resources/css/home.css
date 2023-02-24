@@ -1,11 +1,15 @@
 .loginBtn {
- -fx-background-color: #717171;
+ -fx-background-color: #8E8E8E;
 }
 
 .registerBtn {
- -fx-background-color: #717171;
+ -fx-background-color: black;
 }
 
 .aboutBtn {
- -fx-background-color: #717171;
+ -fx-background-color: #8E8E8E;
+}
+
+.anchor {
+-fx-background-color: white;
 }
