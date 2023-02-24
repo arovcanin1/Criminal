@@ -85,12 +85,17 @@ public class EmployeeController {
             }
         });
 
-            listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
-                placeRecordFld.setText(newValue.getPlace());
-                descriptionRecordFld.setText(newValue.getDescription());
-                dateRecordFld.setText(valueOf(newValue.getDate()));
-                codeRecordFld.setText(newValue.getCode());
-            });
+                listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+                    if (newValue != null) {
+                        placeRecordFld.setText(newValue.getPlace());
+                        descriptionRecordFld.setText(newValue.getDescription());
+                        dateRecordFld.setText(valueOf(newValue.getDate()));
+                        codeRecordFld.setText(newValue.getCode());
+                    }
+                });
+
+
+            listViewRecords.refresh();
 
         } catch (CriminalRecordsException e) {
             throw new RuntimeException(e);
@@ -111,6 +116,14 @@ public class EmployeeController {
             stage.setScene(new Scene(root, USE_COMPUTED_SIZE, USE_COMPUTED_SIZE));
             stage.setResizable(false);
             stage.show();
+            stage.setOnHiding(e -> {
+                try {
+                        listView.setItems(FXCollections.observableArrayList(DaoFactory.criminalsDao().getAll()));
+                        listView.refresh();
+                } catch (CriminalRecordsException ex) {
+                    throw new RuntimeException(ex);
+                }
+            });
             CriminalController criminalController = loader.getController();
             criminalController.setList(listView);
         } catch (IOException e) {
@@ -134,7 +147,8 @@ public class EmployeeController {
             stage.show();
             stage.setOnHiding(e -> {
                 try {
-                    listViewRecords.setItems(FXCollections.observableArrayList(DaoFactory.criminalRecordsDao().getByIdNew(listView.getSelectionModel().getSelectedItem().getId())));
+                    if (listViewRecords != null) {
+                    listViewRecords.setItems(FXCollections.observableArrayList(DaoFactory.criminalRecordsDao().getByIdNew(listView.getSelectionModel().getSelectedItem().getId())));}
                 } catch (CriminalRecordsException ex) {
                     throw new RuntimeException(ex);
                 }
@@ -174,6 +188,10 @@ public class EmployeeController {
             try {
                 DaoFactory.criminalRecordsDao().delete(r.getId());
                 listViewRecords.setItems(FXCollections.observableArrayList(DaoFactory.criminalRecordsDao().getByIdNew(listView.getSelectionModel().getSelectedItem().getId())));
+                placeRecordFld.setText("");
+                descriptionRecordFld.setText("");
+                dateRecordFld.setText(valueOf(""));
+                codeRecordFld.setText("");
             } catch (CriminalRecordsException e) {
                 throw new RuntimeException(e);
             }

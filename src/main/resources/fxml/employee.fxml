@@ -1,65 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="567.0" prefWidth="745.0" styleClass="aPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="700.0" styleClass="aPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@/css/employee.css" />
+   </stylesheets>
+
    <children>
-      <Button fx:id="logoutBtn" layoutX="673.0" layoutY="24.0" mnemonicParsing="false" onAction="#showLogout" text="Logout">
+      <Button fx:id="logoutBtn" layoutX="627.0" layoutY="466.0" mnemonicParsing="false" onAction="#showLogout" text="Logout">
          <font>
             <Font name="Arial" size="13.0" />
          </font></Button>
 
-      <ImageView fitHeight="182.0" fitWidth="192.0" layoutX="24.0" layoutY="373.0">
+      <ImageView fitHeight="124.0" fitWidth="182.0" layoutX="14.0" layoutY="369.0">
          <Image url="@../img/criminals.jpg" />
       </ImageView>
-      <Label layoutX="27.0" layoutY="11.0" prefHeight="50.0" prefWidth="425.0" text="WELCOME TO CRIMINAL RECORDS">
+
+      <ImageView fitHeight="83.0" fitWidth="109.0" layoutX="14.0" layoutY="19.0">
+         <Image url="@../img/logo.jpg" />
+      </ImageView>
+      <Label layoutX="148.0" layoutY="23.0" prefHeight="50.0" prefWidth="466.0" text="WELCOME TO CRIMINAL RECORDS" textFill="#1b1b1b">
          <font>
-            <Font name="Arial Bold" size="24.0" />
+            <Font name="Georgia Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="24.0" layoutY="106.0" prefHeight="203.0" prefWidth="192.0" />
-      <Label layoutX="85.0" layoutY="83.0" text="All criminals">
+      <ListView fx:id="listView" layoutX="14.0" layoutY="139.0" prefHeight="194.0" prefWidth="182.0" />
+      <Label layoutX="66.0" layoutY="117.0" text="All criminals">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="addCriminalBtn" layoutX="27.0" layoutY="319.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal" textFill="#1b1b1b">
+      <Button fx:id="addCriminalBtn" layoutX="15.0" layoutY="339.0" mnemonicParsing="false" onAction="#showAddCriminals" text="Add new criminal" textFill="#1b1b1b">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="12.0" />
          </font></Button>
-      <Label layoutX="443.0" layoutY="83.0" prefHeight="16.0" prefWidth="192.0" text="Details about selected criminal">
+      <Label layoutX="424.0" layoutY="117.0" prefHeight="16.0" prefWidth="192.0" text="Details about selected criminal">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <ListView fx:id="listViewRecords" layoutX="531.0" layoutY="106.0" prefHeight="203.0" prefWidth="192.0" />
-      <Button fx:id="deleteBtn" layoutX="416.0" layoutY="284.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="24.0" prefWidth="109.0" text="Delete record" textFill="#151515">
+      <ListView fx:id="listViewRecords" layoutX="503.0" layoutY="138.0" prefHeight="194.0" prefWidth="182.0" />
+      <Button fx:id="deleteBtn" layoutX="391.0" layoutY="284.0" mnemonicParsing="false" onAction="#deleteRecord" prefHeight="24.0" prefWidth="101.0" text="Delete record" textFill="#151515">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="addRecordBtn" layoutX="417.0" layoutY="253.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" textFill="#19191a">
+      <Button fx:id="addRecordBtn" layoutX="283.0" layoutY="284.0" mnemonicParsing="false" onAction="#showAddRecord" text="Add new record" textFill="#19191a">
          <font>
-            <Font name="Arial" size="13.0" />
+            <Font name="Arial" size="12.0" />
          </font></Button>
-      <TextField fx:id="firstNameFld" layoutX="373.0" layoutY="107.0" promptText="First name" />
-      <TextField fx:id="lastNameFld" layoutX="373.0" layoutY="140.0" promptText="Last name" />
-      <TextField fx:id="jmbgFld" layoutX="373.0" layoutY="177.0" promptText="JMBG" />
-      <TextField fx:id="birthDateFld" layoutX="373.0" layoutY="211.0" promptText="Birth date" />
-      <Label layoutX="442.0" layoutY="335.0" prefHeight="16.0" prefWidth="192.0" text="Details about selected record">
+      <TextField fx:id="firstNameFld" layoutX="326.0" layoutY="139.0" promptText="First name" />
+      <TextField fx:id="lastNameFld" layoutX="326.0" layoutY="173.0" promptText="Last name" />
+      <TextField fx:id="jmbgFld" layoutX="326.0" layoutY="210.0" promptText="JMBG" />
+      <TextField fx:id="birthDateFld" layoutX="326.0" layoutY="243.0" promptText="Birth date" />
+      <Label layoutX="271.0" layoutY="343.0" prefHeight="16.0" prefWidth="192.0" text="Details about selected record">
          <font>
             <Font name="Arial Bold" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="placeRecordFld" layoutX="368.0" layoutY="360.0" promptText="Place of crime" />
-      <TextField fx:id="dateRecordFld" layoutX="523.0" layoutY="360.0" promptText="Date of crime" />
-      <TextField fx:id="codeRecordFld" layoutX="368.0" layoutY="393.0" promptText="Code" />
-      <TextField fx:id="descriptionRecordFld" alignment="TOP_LEFT" layoutX="368.0" layoutY="430.0" prefHeight="122.0" prefWidth="359.0" promptText="Description" />
-      <Button fx:id="profileId" layoutX="610.0" layoutY="24.0" mnemonicParsing="false" onAction="#showProfile" text="Profile">
+      <TextField fx:id="placeRecordFld" layoutX="208.0" layoutY="373.0" promptText="Place of crime" />
+      <TextField fx:id="dateRecordFld" layoutX="367.0" layoutY="373.0" prefHeight="26.0" prefWidth="150.0" promptText="Date of crime" />
+      <TextField fx:id="codeRecordFld" layoutX="208.0" layoutY="408.0" promptText="Code" />
+      <TextField fx:id="descriptionRecordFld" alignment="TOP_LEFT" layoutX="208.0" layoutY="441.0" prefHeight="50.0" prefWidth="312.0" promptText="Description" />
+      <Button fx:id="profileId" layoutX="628.0" layoutY="36.0" mnemonicParsing="false" onAction="#showProfile" text="Profile">
          <font>
             <Font name="Arial" size="13.0" />
          </font>

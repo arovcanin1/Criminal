@@ -1,68 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="362.0" prefWidth="497.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="500.0" styleClass="grid" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@/css/registration.css" />
+    </stylesheets>
+    <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.6" minWidth="10.0" prefWidth="252.6" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.4" minWidth="10.0" prefWidth="247.00000000000003" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="58.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="25.4" minHeight="3.6000000000000014" prefHeight="3.6000000000000014" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="27.39999999999999" minHeight="10.0" prefHeight="20.39999999999999" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="44.400000000000006" minHeight="10.0" prefHeight="33.800007629394514" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="43.399992370605474" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="56.400000000000006" minHeight="10.0" prefHeight="30.599999999999994" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="57.400000000000006" minHeight="10.0" prefHeight="57.400000000000006" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="26.400000000000006" minHeight="10.0" prefHeight="21.400000000000006" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="41.39999999999998" minHeight="10.0" prefHeight="29.600000000000023" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="43.39999999999998" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="57.39999999999998" minHeight="10.0" prefHeight="34.39999999999998" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="59.39999999999998" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="53.39999999999998" minHeight="10.0" prefHeight="53.39999999999998" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <GridPane layoutX="143.0" layoutY="29.0" prefHeight="328.0" prefWidth="344.0" vgap="20.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="211.8" minWidth="96.80000000000001" prefWidth="113.80000000000001" />
-          <ColumnConstraints maxWidth="217.0" minWidth="10.0" prefWidth="200.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label alignment="CENTER" text="First name" GridPane.halignment="CENTER">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Label>
-            <Label text="Last name" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Label>
-            <TextField fx:id="firstNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="first name" GridPane.columnIndex="1" />
-            <TextField fx:id="lastNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label text="Username" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Label>
-            <TextField fx:id="usernameFld" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="emailFld" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="email" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Email" GridPane.halignment="CENTER" GridPane.rowIndex="5">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Label>
-            <PasswordField fx:id="passwordFld" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0" promptText="password" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-            <Label text="Confirm password" GridPane.halignment="CENTER" GridPane.rowIndex="7">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Label>
-            <PasswordField fx:id="passwordConfirmFld" promptText="confirm password" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="Password" GridPane.halignment="CENTER" GridPane.rowIndex="6">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </Label>
-            <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registration" prefHeight="26.0" prefWidth="251.0" text="Register" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font></Button>
-         </children>
-      </GridPane>
-
+      <Label text="REGISTRATION" GridPane.columnSpan="2" GridPane.halignment="CENTER">
+         <font>
+            <Font name="Arial Bold" size="32.0" />
+         </font>
+      </Label>
+      <Label text="First name" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="13.0" />
+         </GridPane.margin></Label>
+      <TextField fx:id="firstNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="230.0" promptText="first name" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></TextField>
+      <Label text="Last name" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="3.0" />
+         </GridPane.margin></Label>
+      <TextField fx:id="lastNameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="230.0" promptText="last name" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
+      <Label text="Email" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="13.0" />
+         </GridPane.margin></Label>
+      <TextField fx:id="emailFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="230.0" promptText="email" GridPane.halignment="LEFT" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></TextField>
+      <Label text="Username" GridPane.columnIndex="1" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="3.0" />
+         </GridPane.margin></Label>
+      <TextField fx:id="usernameFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="230.0" promptText="username" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" />
+      <Label text="Password" GridPane.rowIndex="7">
+         <GridPane.margin>
+            <Insets left="13.0" />
+         </GridPane.margin></Label>
+      <PasswordField fx:id="passwordFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="230.0" promptText="password" GridPane.rowIndex="8">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></PasswordField>
+      <Label text="Confirm password" GridPane.rowIndex="9">
+         <GridPane.margin>
+            <Insets left="13.0" />
+         </GridPane.margin></Label>
+      <PasswordField fx:id="passwordConfirmFld" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="230.0" promptText="confirm password" GridPane.rowIndex="10">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></PasswordField>
+      <Button fx:id="registerBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="28.0" prefWidth="250.0" styleClass="registerBtn" text="Register" textFill="#f4f3f3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+         <font>
+            <Font name="Arial" size="13.0" />
+         </font></Button>
    </children>
-</AnchorPane>
+</GridPane>
