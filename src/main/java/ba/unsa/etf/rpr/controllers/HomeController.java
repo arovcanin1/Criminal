@@ -23,6 +23,7 @@ public class HomeController {
     public Button loginBtn;
     public Button aboutBtn;
 
+
     /**
      * Method that shows registration window after button Register is pressed
      * @param event

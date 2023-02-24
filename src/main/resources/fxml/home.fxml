@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ba.unsa.etf.rpr.controllers.HomeController">
-
+    <stylesheets>
+        <URL value="@/css/home.css" />
+    </stylesheets>
 
    <children>
-      <Button fx:id="aboutBtn" layoutX="497.0" layoutY="1.0" mnemonicParsing="false" onAction="#showAbout" text="About" />
 
-       <Button fx:id="loginBtn" layoutX="620.0" layoutY="1.0" mnemonicParsing="false" onAction="#showLogin" text="Login" />
-       <Button fx:id="registerBtn" layoutX="553.0" layoutY="1.0" mnemonicParsing="false" onAction="#showRegistration" text="Register" />
-
-       <ImageView fx:id="profileBtn" fitHeight="376.0" fitWidth="666.0" layoutY="27.0">
+       <ImageView fx:id="profileBtn" fitHeight="386.0" fitWidth="656.0" layoutY="7.0">
            <Image url="@../img/cr.jpg" />
        </ImageView>
+
+       <Button fx:id="loginBtn" layoutX="26.0" layoutY="84.0" mnemonicParsing="false" onAction="#showLogin" prefHeight="26.0" prefWidth="76.0" styleClass="loginBtn" text="Login" textFill="#fffefe" />
+       <Button fx:id="registerBtn" layoutX="26.0" layoutY="128.0" mnemonicParsing="false" onAction="#showRegistration" prefHeight="26.0" prefWidth="76.0" styleClass="registerBtn" text="Register" textFill="WHITE" />
+      <Button fx:id="aboutBtn" layoutX="26.0" layoutY="41.0" mnemonicParsing="false" onAction="#showAbout" prefHeight="26.0" prefWidth="76.0" styleClass="aboutBtn" text="About" textFill="WHITE" />
    </children>
 </AnchorPane>

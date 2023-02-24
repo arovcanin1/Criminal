@@ -140,6 +140,6 @@ public class CriminalRecord implements Idable {
 
     @Override
     public String toString() {
-        return "Place: " + this.place + "\nDate: " + this.date + "\nCode: " + this.code + "\nDescription: " + this.description;
+        return this.code;
     }
 }

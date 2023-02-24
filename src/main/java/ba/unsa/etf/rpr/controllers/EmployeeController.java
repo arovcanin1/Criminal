@@ -77,12 +77,21 @@ public class EmployeeController {
                 firstNameFld.setText(newValue.getFirstName());
                 lastNameFld.setText(newValue.getLastName());
                 birthDateFld.setText(newValue.getBirthDate().toString());
-                try {
-                    listViewRecords.setItems(FXCollections.observableArrayList(DaoFactory.criminalRecordsDao().getByIdNew(newValue.getId())));
-                } catch (CriminalRecordsException e) {
-                    throw new RuntimeException(e);
-                }
+
+            try {
+                listViewRecords.setItems(FXCollections.observableArrayList(DaoFactory.criminalRecordsDao().getByIdNew(newValue.getId())));
+            } catch (CriminalRecordsException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+            listViewRecords.getSelectionModel().selectedItemProperty().addListener((obs, oldValue, newValue) -> {
+                placeRecordFld.setText(newValue.getPlace());
+                descriptionRecordFld.setText(newValue.getDescription());
+                dateRecordFld.setText(valueOf(newValue.getDate()));
+                codeRecordFld.setText(newValue.getCode());
             });
+
         } catch (CriminalRecordsException e) {
             throw new RuntimeException(e);
         }

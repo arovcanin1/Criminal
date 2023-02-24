@@ -147,12 +147,12 @@ public class Criminal implements Idable {
     }
 
     /**
-     * Method for printing values of Criminal class attributes
+     * Method for showing criminals
      * @return
      */
     @Override
     public String toString() {
-        return "First name: " + this.firstName + "\nLast name: " + this.lastName + "\nJMBG: " + this.jmbg + "\nBirth date: " + this.date;
+        return this.firstName + " " + this.lastName;
     }
 
 }
