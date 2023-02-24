@@ -20,7 +20,7 @@
             <Font name="Arial Bold" size="24.0" />
          </font>
       </Label>
-      <ListView fx:id="listView" layoutX="24.0" layoutY="107.0" prefHeight="203.0" prefWidth="192.0" />
+      <ListView fx:id="listView" layoutX="24.0" layoutY="106.0" prefHeight="203.0" prefWidth="192.0" />
       <Label layoutX="85.0" layoutY="83.0" text="All criminals">
          <font>
             <Font name="Arial Bold" size="13.0" />

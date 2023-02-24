@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -9,12 +8,12 @@
 
 
    <children>
-      <Button fx:id="aboutBtn" layoutX="315.0" layoutY="1.0" mnemonicParsing="false" onAction="#showAbout" text="About" />
+      <Button fx:id="aboutBtn" layoutX="497.0" layoutY="1.0" mnemonicParsing="false" onAction="#showAbout" text="About" />
 
        <Button fx:id="loginBtn" layoutX="620.0" layoutY="1.0" mnemonicParsing="false" onAction="#showLogin" text="Login" />
        <Button fx:id="registerBtn" layoutX="553.0" layoutY="1.0" mnemonicParsing="false" onAction="#showRegistration" text="Register" />
 
-       <ImageView fx:id="profileBtn" fitHeight="409.0" fitWidth="680.0" layoutY="29.0">
+       <ImageView fx:id="profileBtn" fitHeight="376.0" fitWidth="666.0" layoutY="27.0">
            <Image url="@../img/cr.jpg" />
        </ImageView>
    </children>

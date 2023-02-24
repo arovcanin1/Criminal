@@ -1,6 +1,8 @@
 package ba.unsa.etf.rpr.controllers;
 
 import ba.unsa.etf.rpr.business.CriminalRecordManager;
+import ba.unsa.etf.rpr.dao.Dao;
+import ba.unsa.etf.rpr.dao.DaoFactory;
 import ba.unsa.etf.rpr.domain.Criminal;
 import ba.unsa.etf.rpr.domain.CriminalRecord;
 import ba.unsa.etf.rpr.exceptions.CriminalRecordsException;
@@ -23,6 +25,7 @@ public class CriminalRecordController {
     public TextField codeFld;
     public TextField descriptionFld;
     public Button addRecordBtn;
+    public ListView listView;
 
     /**
      * Constructor for CriminalRecordController with one parameter
@@ -39,10 +42,13 @@ public class CriminalRecordController {
         criminal = new Criminal();
     }
 
+
+
     /**
      * Method that add new record for criminal
      * @param event
      */
+
     public void addNewRecord(ActionEvent event) {
         try {
             CriminalRecord criminalRecord = new CriminalRecord();
