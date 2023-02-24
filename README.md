@@ -6,19 +6,19 @@
 
 ## Screenshots 
 ### Home
-#### ![Alt Text](./src/main/resources/screenshots/home.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/home.jpg)
 ### About us
-#### ![Alt Text](./src/main/resources/screenshots/about.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/about.jpg)
 ### Registration
-#### ![Alt Text](./src/main/resources/screenshots/registration.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/registration.jpg)
 ### Login
-#### ![Alt Text](./src/main/resources/screenshots/login.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/login.jpg)
 ### Logged-In User
-#### ![Alt Text](./src/main/resources/screenshots/employee.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/employee.jpg)
 ### Add new Criminal
-#### ![Alt Text](./src/main/resources/screenshots/addCriminal.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/addCriminal.jpg)
 ### Add new Record
-#### ![Alt Text](./src/main/resources/screenshots/addRecord.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/addRecord.jpg)
 ### Profile
-#### ![Alt Text](./src/main/resources/screenshots/profile.jpg)
+##### ![Alt Text](./src/main/resources/screenshots/profile.jpg)
 
