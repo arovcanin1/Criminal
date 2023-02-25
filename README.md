@@ -18,7 +18,7 @@
 <img src="./src/main/resources/screenshots/login.jpg" width="400" height="350"> 
 
 ### __Logged-In User__
-<img src="./src/main/resources/screenshots/employee.jpg" width="500" height="300"> 
+<img src="./src/main/resources/screenshots/employee.jpg" width="500" height="250"> 
 
 ### __Add new Criminal__
 <img src="./src/main/resources/screenshots/addCriminal.jpg" width="400" height="400"> 
