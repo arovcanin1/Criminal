@@ -5,27 +5,27 @@
 
 
 ## Screenshots 
-### **Home** 
+### __Home__ 
 <img src="./src/main/resources/screenshots/home.jpg" width="500" height="300"> 
 
-### **About us**
+### __About us__
 <img src="./src/main/resources/screenshots/about.jpg" width="400" height="300"> 
 
-### **Registration**
+### __Registration__
 <img src="./src/main/resources/screenshots/registration.jpg" width="400" height="400"> 
 
-### **Login**
-<img src="./src/main/resources/screenshots/login.jpg" width="400" height="400"> 
+### __Login__
+<img src="./src/main/resources/screenshots/login.jpg" width="400" height="300"> 
 
-### **Logged-In User**
+### __Logged-In User__
 <img src="./src/main/resources/screenshots/employee.jpg" width="500" height="300"> 
 
-### **Add new Criminal**
+### __Add new Criminal__
 <img src="./src/main/resources/screenshots/addCriminal.jpg" width="400" height="400"> 
 
-### **Add new Record**
+### __Add new Record__
 <img src="./src/main/resources/screenshots/addRecord.jpg" width="500" height="300"> 
 
-### **Profile**
+### __Profile__
 <img src="./src/main/resources/screenshots/profile.jpg" width="400" height="300"> 
 
