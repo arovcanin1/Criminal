@@ -5,20 +5,27 @@
 
 
 ## Screenshots 
-### Home
-#### ![Alt Text](./src/main/resources/screenshots/home.jpg)
-### About us
-#### ![Alt Text](./src/main/resources/screenshots/about.jpg)
-### Registration
-#### ![Alt Text](./src/main/resources/screenshots/registration.jpg)
-### Login
-#### ![Alt Text](./src/main/resources/screenshots/login.jpg)
-### Logged-In User
-#### ![Alt Text](./src/main/resources/screenshots/employee.jpg)
-### Add new Criminal
-#### ![Alt Text](./src/main/resources/screenshots/addCriminal.jpg)
-### Add new Record
-#### ![Alt Text](./src/main/resources/screenshots/addRecord.jpg)
-### Profile
-#### ![Alt Text](./src/main/resources/screenshots/profile.jpg)
+### **Home** 
+<img src="./src/main/resources/screenshots/home.jpg" width="300" height="200"> 
+
+### **About us**
+<img src="./src/main/resources/screenshots/about.jpg" width="200" height="200"> 
+
+### **Registration**
+<img src="./src/main/resources/screenshots/registration.jpg" width="200" height="200"> 
+
+### **Login**
+<img src="./src/main/resources/screenshots/login.jpg" width="200" height="200"> 
+
+### **Logged-In User**
+<img src="./src/main/resources/screenshots/employee.jpg" width="300" height="200"> 
+
+### **Add new Criminal**
+<img src="./src/main/resources/screenshots/addCriminal.jpg" width="200" height="200"> 
+
+### **Add new Record**
+<img src="./src/main/resources/screenshots/addRecord.jpg" width="300" height="200"> 
+
+### **Profile**
+<img src="./src/main/resources/screenshots/profile.jpg" width="200" height="200"> 
 
