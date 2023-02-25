@@ -6,26 +6,26 @@
 
 ## Screenshots 
 ### **Home** 
-<img src="./src/main/resources/screenshots/home.jpg" width="300" height="200"> 
+<img src="./src/main/resources/screenshots/home.jpg" width="500" height="300"> 
 
 ### **About us**
-<img src="./src/main/resources/screenshots/about.jpg" width="200" height="200"> 
+<img src="./src/main/resources/screenshots/about.jpg" width="400" height="300"> 
 
 ### **Registration**
-<img src="./src/main/resources/screenshots/registration.jpg" width="200" height="200"> 
+<img src="./src/main/resources/screenshots/registration.jpg" width="400" height="400"> 
 
 ### **Login**
-<img src="./src/main/resources/screenshots/login.jpg" width="200" height="200"> 
+<img src="./src/main/resources/screenshots/login.jpg" width="400" height="400"> 
 
 ### **Logged-In User**
-<img src="./src/main/resources/screenshots/employee.jpg" width="300" height="200"> 
+<img src="./src/main/resources/screenshots/employee.jpg" width="500" height="300"> 
 
 ### **Add new Criminal**
-<img src="./src/main/resources/screenshots/addCriminal.jpg" width="200" height="200"> 
+<img src="./src/main/resources/screenshots/addCriminal.jpg" width="400" height="400"> 
 
 ### **Add new Record**
-<img src="./src/main/resources/screenshots/addRecord.jpg" width="300" height="200"> 
+<img src="./src/main/resources/screenshots/addRecord.jpg" width="500" height="300"> 
 
 ### **Profile**
-<img src="./src/main/resources/screenshots/profile.jpg" width="200" height="200"> 
+<img src="./src/main/resources/screenshots/profile.jpg" width="400" height="300"> 
 
